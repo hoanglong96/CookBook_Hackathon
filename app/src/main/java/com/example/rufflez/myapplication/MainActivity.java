@@ -15,9 +15,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.rufflez.myapplication.fragments.ShoppingListFragment;
 import com.example.rufflez.myapplication.fragments.FavouritesLayoutFragment;
 import com.example.rufflez.myapplication.fragments.HomeFragment;
+import com.example.rufflez.myapplication.fragments.ShoppingListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+    private int[] tabIcons = {
+            R.drawable.home_variant,
+            R.drawable.heart,
+            R.drawable.cart
+    };
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,33 +60,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
+        setupTabIcons();
     }
+
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+    }
+
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new HomeFragment(), "Home");
-        adapter.addFrag(new FavouritesLayoutFragment(), "Favourites");
-        adapter.addFrag(new ShoppingListFragment(), "Shopping List");
+        adapter.addFrag(new FavouritesLayoutFragment(), "Fvourites");
+        adapter.addFrag(new ShoppingListFragment(), "Shopping");
         viewPager.setAdapter(adapter);
     }
 
@@ -91,13 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
 
                 switch (menuItem.getItemId()) {
-                    case R.id.drawer_labels:
+                    case R.id.drawer_homes:
                         viewPager.setCurrentItem(0);
                         break;
-                    case R.id.drawer_fab:
+                    case R.id.drawer_fav:
                         viewPager.setCurrentItem(1);
                         break;
-                    case R.id.drawer_coordinator:
+                    case R.id.drawer_shop:
                         viewPager.setCurrentItem(2);
                         break;
                 }

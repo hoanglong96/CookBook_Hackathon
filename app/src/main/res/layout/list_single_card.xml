@@ -8,13 +8,13 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <ImageView
-            android:id="@+id/itemImage"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher" />
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher" />
 
 
         <TextView

@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment{
         // recyclerview
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 getActivity());
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecycleView.setLayoutManager(layoutManager);
         createDummyData();
         RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(getActivity(), allSampleData);
@@ -43,14 +43,14 @@ public class HomeFragment extends Fragment{
     }
 
     public void createDummyData() {
-        for (int i = 1; i <= 1; i++) {
+        for (int i = 1; i <= 5; i++) {
 
             SectionDataModel dm = new SectionDataModel();
 
             dm.setHeaderTitle("Section " + i);
 
             ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
-            for (int j = 0; j <= 1; j++) {
+            for (int j = 0; j <= 5; j++) {
                 singleItem.add(new SingleItemModel("Item " + j, "URL " + j));
             }
             dm.setAllItemsInSection(singleItem);
