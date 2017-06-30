@@ -58,8 +58,6 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
                 Toast.makeText(v.getContext(), "click event on more, "+sectionName , Toast.LENGTH_SHORT).show();
 
-
-
             }
         });
 

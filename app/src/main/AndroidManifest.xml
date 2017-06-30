@@ -17,13 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MoreFoodActivity"
-            android:label="@string/title_activity_more_food"
-            android:theme="@style/MyMaterialTheme" />
-        <activity
-            android:name=".FoodDetailActivity"
-            android:label="@string/title_activity_food_detail"
+            android:name=".DetailFoodActivity"
+            android:label="@string/title_activity_detail_food"
             android:theme="@style/MyMaterialTheme"></activity>
+
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.example.rufflez.myapplication;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -11,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,14 +42,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Toolbar
         Toolbar toolbar = (Toolbar)findViewById(R.id.mToolbar);
         setSupportActionBar(toolbar);
-
         final ActionBar ab = getSupportActionBar();
         ab.setTitle("Cook Book");
         ab.setHomeAsUpIndicator(R.drawable.ic_menu);
         ab.setDisplayHomeAsUpEnabled(true);
 
+        //drawer_layout navigation view
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
         NavigationView navView = (NavigationView) findViewById(R.id.navigation_view);
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             setupViewPager(viewPager);
         }
 
-
+        //TabLayout
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new HomeFragment(), "Home");
-        adapter.addFrag(new FavouritesLayoutFragment(), "Fvourites");
+        adapter.addFrag(new FavouritesLayoutFragment(), "Favourites");
         adapter.addFrag(new ShoppingListFragment(), "Shopping");
         viewPager.setAdapter(adapter);
     }
@@ -138,7 +142,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = null;
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
+        }
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -160,9 +173,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     drawerLayout.openDrawer(GravityCompat.START);
                 }
-
-                return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }

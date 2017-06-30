@@ -16,7 +16,7 @@ import com.example.rufflez.myapplication.R;
 public class InfoFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.floating_action_button, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_favourites, container, false);
         FloatingActionButton button = (FloatingActionButton)rootView.findViewById(R.id.fab2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

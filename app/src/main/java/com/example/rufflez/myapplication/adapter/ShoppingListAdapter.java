@@ -15,15 +15,15 @@ import java.util.List;
 /**
  * Created by rufflez on 10/4/15.
  */
-public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.VersionViewHolder> {
+public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapter.VersionViewHolder> {
     List<String> versionModels;
     Context context;
 
-    public SimpleRecyclerAdapter(Context context){
+    public ShoppingListAdapter(Context context){
         this.context = context;
     }
 
-    public SimpleRecyclerAdapter(List<String> versionModels){
+    public ShoppingListAdapter(List<String> versionModels){
         this.versionModels = versionModels;
     }
 
@@ -35,7 +35,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     }
 
     @Override
-    public void onBindViewHolder(SimpleRecyclerAdapter.VersionViewHolder holder, int position) {
+    public void onBindViewHolder(ShoppingListAdapter.VersionViewHolder holder, int position) {
         holder.title.setText(versionModels.get(position));
     }
 

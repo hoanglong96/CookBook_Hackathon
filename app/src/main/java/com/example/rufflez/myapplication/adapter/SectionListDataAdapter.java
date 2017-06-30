@@ -1,6 +1,7 @@
 package com.example.rufflez.myapplication.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rufflez.myapplication.DetailFoodActivity;
 import com.example.rufflez.myapplication.R;
 import com.example.rufflez.myapplication.model.SingleItemModel;
 
@@ -73,9 +75,9 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mContext,DetailFoodActivity.class);
+                    mContext.startActivity(intent);
 
                 }
             });
