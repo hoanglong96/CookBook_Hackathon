@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.rufflez.myapplication.fragments.FavouritesLayoutFragment;
-import com.example.rufflez.myapplication.fragments.ShoppingListFragment;
+import com.example.rufflez.myapplication.fragments.NguyenLieuFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class DetailFoodActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ShoppingListFragment(), "Nguyên liệu");
+        adapter.addFrag(new NguyenLieuFragment(), "Nguyên liệu");
         adapter.addFrag(new FavouritesLayoutFragment(), "Cách làm");
         viewPager.setAdapter(adapter);
     }
