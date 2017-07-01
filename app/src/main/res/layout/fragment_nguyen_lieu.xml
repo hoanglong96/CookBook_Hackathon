@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl"
     android:layout_width="match_parent"
@@ -6,9 +6,7 @@
     android:padding="16dp"
     tools:context=".MainActivity"
     android:background="#f7f9f4"
-    android:orientation="vertical"
     >
-
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
@@ -22,11 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:choiceMode="multipleChoice"
+        android:layout_below="@id/tv"
         >
     </ListView>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 
-</LinearLayout>
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.rufflez.myapplication.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rufflez.myapplication.MoreActivity;
 import com.example.rufflez.myapplication.R;
 import com.example.rufflez.myapplication.model.SectionDataModel;
 
@@ -57,6 +59,8 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
 
                 Toast.makeText(v.getContext(), "click event on more, "+sectionName , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext,MoreActivity.class);
+                mContext.startActivity(intent);
 
             }
         });

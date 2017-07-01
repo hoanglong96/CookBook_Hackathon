@@ -37,16 +37,16 @@ public class NguyenLieuFragment extends Fragment{
 
 
         List<String> trees = Arrays.asList(
-                "Alder",
-                "Basswood",
-                "Birch",
-                "Buckeye",
-                "Cedar",
-                "Cherry",
-                "Chestnut",
-                "Hawthorn",
-                "Cypress",
-                "Honeylocust"
+                "7-8 lạng gà ta",
+                "50ml mật ong rừng",
+                "Nước mắm",
+                "Mì chính",
+                "Hạt tiêu",
+                "Tỏi khô",
+                "Gừng tươi băm nhỏ",
+                "Bột mỳ",
+                "Ớt tươi",
+                "Dầu ăn"
         );
 
         ArrayAdapter<String> adapter = new ArrayAdapter(

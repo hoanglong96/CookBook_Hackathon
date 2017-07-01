@@ -9,5 +9,4 @@ public class VersionModel {
             "honeycomb", "ice cream sandwich", "jelly bean", "kit kat",
             "Lollipop", "marshmallow"
     };
-
 }
