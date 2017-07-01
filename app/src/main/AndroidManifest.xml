@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".DetailFoodActivity"
-            android:label="@string/title_activity_detail_food"
+            android:label=""
             android:theme="@style/MyMaterialTheme" />
         <activity android:name=".MoreActivity"></activity>
     </application>

@@ -39,7 +39,7 @@ public class SplashScreen extends AppCompatActivity {
                         }
                     });
                     progressBar.setProgress(i);
-                    i += 2;
+                    i += 5;
                 }else{
                     //closing the timer
                     timer.cancel();

@@ -43,7 +43,7 @@ public class DetailFoodActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-
+        setTitle("Gà rán mật ong");
         setSupportActionBar(toolbar);
 
 
@@ -60,7 +60,7 @@ public class DetailFoodActivity extends AppCompatActivity {
         //CollapsingToolbar
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_detail_food);
-        collapsingToolbar.setTitle("Gà rán mật ong");
+
 
         //Intent
         Intent intent = this.getIntent();
