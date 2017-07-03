@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,6 +28,8 @@ public class NguyenLieuFragment extends Fragment{
     private ListView mListView;
     private TextView mTextView;
     private RelativeLayout mRelativeLayout;
+    private Button btnCheckAll;
+    private boolean isCheckAll;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -34,7 +37,26 @@ public class NguyenLieuFragment extends Fragment{
         mListView = (ListView) rootView.findViewById(R.id.lv);
         mTextView = (TextView) rootView.findViewById(R.id.tv);
         mRelativeLayout = (RelativeLayout) rootView.findViewById(R.id.rl);
+        btnCheckAll = rootView.findViewById(R.id.btn_check_all);
 
+        btnCheckAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isCheckAll){
+                    for ( int i=0; i < mListView.getChildCount(); i++) {
+                        mListView.setItemChecked(i, false);
+                    }
+                    btnCheckAll.setText("Chọn tất cả");
+                    isCheckAll = false;
+                }else{
+                    for ( int i=0; i < mListView.getChildCount(); i++) {
+                        mListView.setItemChecked(i, true);
+                    }
+                    btnCheckAll.setText("Bỏ tất cả");
+                    isCheckAll = true;
+                }
+            }
+        });
 
         List<String> trees = Arrays.asList(
                 "7-8 lạng gà ta",

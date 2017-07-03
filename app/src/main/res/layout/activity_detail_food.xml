@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+        android:id="@+id/appbar_detail_food"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -41,17 +41,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="270dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
                             <LinearLayout
-                                android:paddingTop="10dp"
+
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:weightSum="3">
+                                android:weightSum="4">
                                 <LinearLayout
+                                    android:paddingTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical"
@@ -62,19 +59,24 @@
                                         android:background="@drawable/heart_pulse"
                                         android:layout_gravity="center_horizontal"
                                         />
+
                                     <TextView
+                                        android:id="@+id/textView2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:text="701.7"
-                                        android:textColor="@color/colorPrimaryDark"
-                                        android:layout_gravity="center"/>
+                                        android:textColor="@color/colorPrimaryDark" />
+
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Calories"
+                                        android:textColor="@color/black_semi_transparent"
                                         android:layout_gravity="center"/>
                                 </LinearLayout>
                                 <LinearLayout
+                                    android:paddingTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical"
@@ -96,9 +98,11 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Khẩu phần"
+                                        android:textColor="@color/black_semi_transparent"
                                         android:layout_gravity="center"/>
                                 </LinearLayout>
                                 <LinearLayout
+                                    android:paddingTop="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical"
@@ -119,11 +123,35 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Thời gian"
+                                        android:textColor="@color/black_semi_transparent"
                                         android:layout_gravity="center"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1">
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="top|center_horizontal">
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/bookmark"
+                                            android:layout_gravity="top|center_vertical"
+                                            />
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/heart_outline"
+                                            android:layout_centerHorizontal="true"
+                                            android:id="@+id/book_mark"
+                                            android:layout_centerInParent="true"/>
+                                    </RelativeLayout>
                                 </LinearLayout>
 
                             </LinearLayout>
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -170,39 +198,4 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </LinearLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:id="@+id/multiple_actions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            app:fab_addButtonColorNormal="@color/white"
-            app:fab_addButtonColorPressed="@color/white_pressed"
-            app:fab_addButtonPlusIconColor="@color/half_black"
-            app:fab_labelStyle="@style/Theme.AppCompat">
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/action_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cart"
-                app:fab_colorPressed="@color/blue_semi_transparent"
-                app:fab_icon="@drawable/cart" />
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/action_b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/food_variant"
-                app:fab_colorPressed="@color/blue_semi_transparent"
-                app:fab_icon="@drawable/food_variant" />
-
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
-    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

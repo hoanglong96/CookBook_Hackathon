@@ -4,6 +4,7 @@ package com.example.rufflez.myapplication;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -17,20 +18,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.rufflez.myapplication.fragments.NguyenLieuFragment;
 import com.example.rufflez.myapplication.fragments.StepFragment;
-import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DetailFoodActivity extends AppCompatActivity {
 
-    private boolean isBookMark;
     private ViewPager mViewPager;
-    private ImageView ivBookMark;
+    ImageView imgBookMark;
+    boolean isBookMark;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,40 +57,57 @@ public class DetailFoodActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_detail_food);
         tabLayout.setupWithViewPager(mViewPager);
 
-        //CollapsingToolbar
-        CollapsingToolbarLayout collapsingToolbar =
+        //Show CollapsingToolbarLayout Title ONLY when collapsed
+        final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_detail_food);
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar_detail_food);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbar.setTitle("Gà rán mật ong");
+                    isShow = true;
+                } else if (isShow) {
+                    collapsingToolbar.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
+                    isShow = false;
+                }
+            }
+        });
 
 
         //Intent
         Intent intent = this.getIntent();
 
-        //Floating Action Button
-        final View actionB = findViewById(R.id.action_b);
-        actionB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar snackbar = Snackbar.make(view, "Bạn đã thêm nguyên liệu vào danh sách cần mua", Snackbar.LENGTH_SHORT)
-                        .setAction("View List", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                            }
-                        });
-                snackbar.setActionTextColor(Color.YELLOW);
-                snackbar.show();
-                //Toast.makeText(DetailFoodActivity.this, "Bạn đã thêm nguyên liệu vào danh sách cần mua", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
-        actionA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(DetailFoodActivity.this, "Bắt đầu nấu thôi nào !", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         //Bookmark
+        imgBookMark = (ImageView) findViewById(R.id.book_mark);
+        imgBookMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isBookMark) {
+                    imgBookMark.setImageResource(R.drawable.heart_outline);
+                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã xóa món ăn khỏi yêu thích", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    isBookMark = false;
+                } else {
+                    imgBookMark.setImageResource(R.drawable.heart_book_mark);
+                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm món ăn vào yêu thích", Snackbar.LENGTH_SHORT)
+                            .setAction("Yêu thích", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                }
+                            });
+                    snackbar.setActionTextColor(Color.YELLOW);
+                    snackbar.show();
+                    isBookMark = true;
+                }
+            }
+        });
 
     }
 
@@ -117,26 +134,21 @@ public class DetailFoodActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_bookmark) {
-            if(isBookMark){
-                item.setIcon(R.drawable.heart_outline);
-                isBookMark = false;
-
-                Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã xóa món ăn khỏi danh sách yêu thích", Snackbar.LENGTH_SHORT);
-                snackbar.show();
-            }
-            else{
-                item.setIcon(R.drawable.heart_book_mark);
-                isBookMark = true;
-                Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm món ăn vào danh sách yêu thích", Snackbar.LENGTH_SHORT)
-                        .setAction("Favourites", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                            }
-                        });
-                snackbar.setActionTextColor(Color.YELLOW);
-                snackbar.show();
-            }
+        if (id == R.id.action_cooktoday) {
+            Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm vào thực đơn hôm nay", Snackbar.LENGTH_SHORT)
+                    .setAction("Thực đơn", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                        }
+                    });
+            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.show();
+            return true;
+        }
+        if (id == R.id.action_cooknow) {
+            Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bắt đầu nấu ăn thôi ^^", Snackbar.LENGTH_SHORT);
+            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.show();
             return true;
         }
 

@@ -1,8 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_bookmark"
-        android:icon="@drawable/heart_outline"
+    <item android:id="@+id/action_cooktoday"
+        android:icon="@drawable/clipboard_text"
+        app:showAsAction="collapseActionView|always"
+        android:layout_width="wrap_content"
+        android:title="Bookmark" />
+    <item android:id="@+id/action_cooknow"
+        android:icon="@drawable/silverware"
         app:showAsAction="collapseActionView|always"
         android:layout_width="wrap_content"
         android:title="Bookmark" />

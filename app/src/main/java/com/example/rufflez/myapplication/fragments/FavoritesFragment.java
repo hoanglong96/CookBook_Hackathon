@@ -11,7 +11,7 @@ import com.example.rufflez.myapplication.R;
 /**
  * Created by rufflez on 6/20/15.
  */
-public class FavouritesLayoutFragment extends Fragment {
+public class FavoritesFragment extends Fragment {
 
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_favourites, container, false);
