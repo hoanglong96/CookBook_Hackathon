@@ -132,13 +132,14 @@ public class DetailFoodActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_cooktoday) {
             Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm vào thực đơn hôm nay", Snackbar.LENGTH_SHORT)
                     .setAction("Thực đơn", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            MenuCookToday();
                         }
                     });
             snackbar.setActionTextColor(Color.YELLOW);
@@ -153,6 +154,11 @@ public class DetailFoodActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void MenuCookToday() {
+        Intent intent = new Intent(this,CookToday.class);
+        startActivity(intent);
     }
 
 

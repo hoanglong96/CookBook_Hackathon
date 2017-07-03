@@ -9,7 +9,7 @@
         android:theme="@style/MyMaterialTheme">
         <activity
             android:name=".MainActivity"
-            android:label="Cook Book"
+            android:label="Hôm nay bạn nấu gì?"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SplashScreen"
@@ -24,7 +24,15 @@
             android:name=".DetailFoodActivity"
             android:label=""
             android:theme="@style/MyMaterialTheme" />
-        <activity android:name=".MoreActivity"></activity>
+        <activity android:name=".MoreActivity" />
+        <activity
+            android:name=".CookToday"
+            android:label="Thực đơn hôm nay"
+            android:theme="@style/MyMaterialTheme"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="About"
+            android:theme="@style/MyMaterialTheme"></activity>
     </application>
 
 </manifest>
