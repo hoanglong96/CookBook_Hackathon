@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.model;
+package com.example.rufflez.Cookbook.model;
 
 import java.util.ArrayList;
 

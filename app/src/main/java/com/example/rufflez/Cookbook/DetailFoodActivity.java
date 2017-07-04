@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication;
+package com.example.rufflez.Cookbook;
 
 
 import android.content.Intent;
@@ -19,8 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.rufflez.myapplication.fragments.NguyenLieuFragment;
-import com.example.rufflez.myapplication.fragments.StepFragment;
+import com.example.rufflez.Cookbook.fragments.NguyenLieuFragment;
+import com.example.rufflez.Cookbook.fragments.StepFragment;
 
 import java.util.ArrayList;
 import java.util.List;

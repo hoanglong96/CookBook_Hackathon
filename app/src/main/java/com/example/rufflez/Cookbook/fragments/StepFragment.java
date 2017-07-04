@@ -1,14 +1,12 @@
-package com.example.rufflez.myapplication.fragments;
+package com.example.rufflez.Cookbook.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rufflez.myapplication.R;
+import com.example.rufflez.Cookbook.R;
 
 /**
  * A simple {@link Fragment} subclass.

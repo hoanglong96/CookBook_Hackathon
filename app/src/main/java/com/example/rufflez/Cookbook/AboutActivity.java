@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication;
+package com.example.rufflez.Cookbook;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;

@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.adapter;
+package com.example.rufflez.Cookbook.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rufflez.myapplication.R;
+import com.example.rufflez.Cookbook.R;
 
 /**
  * Created by HoangLong on 7/1/2017.

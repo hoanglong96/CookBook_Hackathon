@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.fragments;
+package com.example.rufflez.Cookbook.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rufflez.myapplication.R;
-import com.example.rufflez.myapplication.adapter.RecyclerViewDataAdapter;
-import com.example.rufflez.myapplication.model.FoodTypeDataModel;
-import com.example.rufflez.myapplication.model.ItemInTypeFoodModel;
+import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.Cookbook.adapter.RecyclerViewDataAdapter;
+import com.example.rufflez.Cookbook.model.FoodTypeDataModel;
+import com.example.rufflez.Cookbook.model.ItemInTypeFoodModel;
 
 import java.util.ArrayList;
 

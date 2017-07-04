@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication;
+package com.example.rufflez.Cookbook;
 
 import android.content.Intent;
 import android.os.Bundle;

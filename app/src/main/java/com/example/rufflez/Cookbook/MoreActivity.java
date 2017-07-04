@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication;
+package com.example.rufflez.Cookbook;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.example.rufflez.myapplication.adapter.MoreFoodGridAdapter;
+import com.example.rufflez.Cookbook.adapter.MoreFoodGridAdapter;
 
 public class MoreActivity extends AppCompatActivity {
 

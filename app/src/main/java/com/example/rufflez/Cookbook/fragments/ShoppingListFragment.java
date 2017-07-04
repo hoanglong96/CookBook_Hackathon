@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.fragments;
+package com.example.rufflez.Cookbook.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.rufflez.myapplication.R;
-import com.example.rufflez.myapplication.model.ShopModel;
+import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.Cookbook.model.ShopModel;
 
 /**
  * Created by rufflez on 6/21/15.

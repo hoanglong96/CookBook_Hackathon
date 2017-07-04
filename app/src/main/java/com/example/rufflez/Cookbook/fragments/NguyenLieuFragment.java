@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.fragments;
+package com.example.rufflez.Cookbook.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.rufflez.myapplication.R;
+import com.example.rufflez.Cookbook.R;
 
 import java.util.Arrays;
 import java.util.List;

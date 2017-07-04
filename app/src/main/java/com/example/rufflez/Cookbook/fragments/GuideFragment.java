@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.rufflez.myapplication.fragments;
+package com.example.rufflez.Cookbook.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,8 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.rufflez.myapplication.AboutActivity;
-import com.example.rufflez.myapplication.R;
+import com.example.rufflez.Cookbook.AboutActivity;
+import com.example.rufflez.Cookbook.R;
 
 /**
  * Created by chenupt@gmail.com on 2015/1/31.

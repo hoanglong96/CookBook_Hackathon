@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.model;
+package com.example.rufflez.Cookbook.model;
 
 /**
  * Created by HoangLong on 6/27/2017.

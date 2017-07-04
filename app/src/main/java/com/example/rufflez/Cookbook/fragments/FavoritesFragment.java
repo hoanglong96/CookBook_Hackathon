@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.fragments;
+package com.example.rufflez.Cookbook.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rufflez.myapplication.R;
+import com.example.rufflez.Cookbook.R;
 
 /**
  * Created by rufflez on 6/20/15.

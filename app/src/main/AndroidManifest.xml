@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rufflez.myapplication">
+    package="com.example.rufflez.Cookbook">
 
     <application
         android:allowBackup="true"
@@ -8,11 +8,11 @@
         android:label="@string/app_name"
         android:theme="@style/MyMaterialTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.rufflez.Cookbook.MainActivity"
             android:label="Hôm nay bạn nấu gì?"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.example.rufflez.Cookbook.SplashScreen"
             android:theme="@style/MyMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,16 +21,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailFoodActivity"
+            android:name="com.example.rufflez.Cookbook.DetailFoodActivity"
             android:label=""
             android:theme="@style/MyMaterialTheme" />
-        <activity android:name=".MoreActivity" />
+        <activity android:name="com.example.rufflez.Cookbook.MoreActivity" />
         <activity
-            android:name=".CookToday"
+            android:name="com.example.rufflez.Cookbook.CookToday"
             android:label="Thực đơn hôm nay"
             android:theme="@style/MyMaterialTheme"></activity>
         <activity
-            android:name=".AboutActivity"
+            android:name="com.example.rufflez.Cookbook.AboutActivity"
             android:label="About"
             android:theme="@style/MyMaterialTheme"></activity>
     </application>

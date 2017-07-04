@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication;
+package com.example.rufflez.Cookbook;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.rufflez.myapplication.fragments.GuideFragment;
+import com.example.rufflez.Cookbook.fragments.GuideFragment;
 
 import com.google.common.collect.Lists;
 import java.util.List;

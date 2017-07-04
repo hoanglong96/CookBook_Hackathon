@@ -1,4 +1,4 @@
-package com.example.rufflez.myapplication.adapter;
+package com.example.rufflez.Cookbook.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.rufflez.myapplication.MoreActivity;
-import com.example.rufflez.myapplication.R;
-import com.example.rufflez.myapplication.model.FoodTypeDataModel;
+import com.example.rufflez.Cookbook.MoreActivity;
+import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.Cookbook.model.FoodTypeDataModel;
 
 import java.util.ArrayList;
 
