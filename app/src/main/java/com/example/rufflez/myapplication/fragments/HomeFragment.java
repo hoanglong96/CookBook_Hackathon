@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 
 import com.example.rufflez.myapplication.R;
 import com.example.rufflez.myapplication.adapter.RecyclerViewDataAdapter;
-import com.example.rufflez.myapplication.model.SectionDataModel;
-import com.example.rufflez.myapplication.model.SingleItemModel;
+import com.example.rufflez.myapplication.model.FoodTypeDataModel;
+import com.example.rufflez.myapplication.model.ItemInTypeFoodModel;
 
 import java.util.ArrayList;
 
@@ -20,11 +20,11 @@ import java.util.ArrayList;
  * Created by rufflez on 6/20/15.
  */
 public class HomeFragment extends Fragment{
-    ArrayList<SectionDataModel> allSampleData = new ArrayList<SectionDataModel>();;
+    ArrayList<FoodTypeDataModel> allSampleData = new ArrayList<FoodTypeDataModel>();;
     RecyclerView mRecycleView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.floating_labels, container, false);
+        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
         mRecycleView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         return rootView;
     }
@@ -45,13 +45,13 @@ public class HomeFragment extends Fragment{
     public void createDummyData() {
         for (int i = 1; i <= 5; i++) {
 
-            SectionDataModel dm = new SectionDataModel();
+            FoodTypeDataModel dm = new FoodTypeDataModel();
 
             dm.setHeaderTitle("Section " + i);
 
-            ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
+            ArrayList<ItemInTypeFoodModel> singleItem = new ArrayList<ItemInTypeFoodModel>();
             for (int j = 0; j <= 5; j++) {
-                singleItem.add(new SingleItemModel("Item " + j, "URL " + j));
+                singleItem.add(new ItemInTypeFoodModel("Item " + j, "URL " + j));
             }
             dm.setAllItemsInSection(singleItem);
 

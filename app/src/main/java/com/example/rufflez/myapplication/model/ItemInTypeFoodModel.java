@@ -4,7 +4,7 @@ package com.example.rufflez.myapplication.model;
  * Created by HoangLong on 6/27/2017.
  */
 
-public class SingleItemModel {
+public class ItemInTypeFoodModel {
 
 
     private String name;
@@ -12,10 +12,10 @@ public class SingleItemModel {
     private String description;
 
 
-    public SingleItemModel() {
+    public ItemInTypeFoodModel() {
     }
 
-    public SingleItemModel(String name, String url) {
+    public ItemInTypeFoodModel(String name, String url) {
         this.name = name;
         this.url = url;
     }

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.rufflez.myapplication.DetailFoodActivity;
 import com.example.rufflez.myapplication.R;
-import com.example.rufflez.myapplication.model.SingleItemModel;
+import com.example.rufflez.myapplication.model.ItemInTypeFoodModel;
 
 import java.util.ArrayList;
 
@@ -20,19 +20,19 @@ import java.util.ArrayList;
  * Created by HoangLong on 6/28/2017.
  */
 
-public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
+public class CardViewListDataAdapter extends RecyclerView.Adapter<CardViewListDataAdapter.SingleItemRowHolder> {
 
-    private ArrayList<SingleItemModel> itemsList;
+    private ArrayList<ItemInTypeFoodModel> itemsList;
     private Context mContext;
 
-    public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemsList) {
+    public CardViewListDataAdapter(Context context, ArrayList<ItemInTypeFoodModel> itemsList) {
         this.itemsList = itemsList;
         this.mContext = context;
     }
 
     @Override
     public SingleItemRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_single_card, null);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_in_type_food, null);
         SingleItemRowHolder mh = new SingleItemRowHolder(v);
         return mh;
     }
@@ -40,7 +40,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     @Override
     public void onBindViewHolder(SingleItemRowHolder holder, int i) {
 
-        SingleItemModel singleItem = itemsList.get(i);
+        ItemInTypeFoodModel singleItem = itemsList.get(i);
 
         holder.tvTitle.setText(singleItem.getName());
 

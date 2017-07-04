@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.rufflez.myapplication.MoreActivity;
 import com.example.rufflez.myapplication.R;
-import com.example.rufflez.myapplication.model.SectionDataModel;
+import com.example.rufflez.myapplication.model.FoodTypeDataModel;
 
 import java.util.ArrayList;
 
@@ -22,17 +22,17 @@ import java.util.ArrayList;
 
 public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDataAdapter.ItemRowHolder> {
 
-    private ArrayList<SectionDataModel> dataList;
+    private ArrayList<FoodTypeDataModel> dataList;
     private Context mContext;
 
-    public RecyclerViewDataAdapter(Context context, ArrayList<SectionDataModel> dataList) {
+    public RecyclerViewDataAdapter(Context context, ArrayList<FoodTypeDataModel> dataList) {
         this.dataList = dataList;
         this.mContext = context;
     }
 
     @Override
     public ItemRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, null);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view_type_food, null);
         ItemRowHolder mh = new ItemRowHolder(v);
         return mh;
     }
@@ -46,7 +46,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
         itemRowHolder.itemTitle.setText(sectionName);
 
-        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems);
+        CardViewListDataAdapter itemListDataAdapter = new CardViewListDataAdapter(mContext, singleSectionItems);
 
         itemRowHolder.recycler_view_list.setHasFixedSize(true);
         itemRowHolder.recycler_view_list.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));

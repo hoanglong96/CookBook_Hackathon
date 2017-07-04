@@ -47,7 +47,7 @@ public class GuideFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_guide, container, false);
+        return inflater.inflate(R.layout.fragment_cook_today, container, false);
     }
 
     @Override

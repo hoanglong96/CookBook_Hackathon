@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.rufflez.myapplication.R;
-import com.example.rufflez.myapplication.model.VersionModel;
+import com.example.rufflez.myapplication.model.ShopModel;
 
 /**
  * Created by rufflez on 6/21/15.
@@ -22,7 +22,7 @@ public class ShoppingListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.coordinator_layout, container, false);
+        View rootView = inflater.inflate(R.layout.shopping_layout, container, false);
         recyclerView = (RecyclerView)rootView.findViewById(R.id.recyclerView);
         setupRecyclerView(recyclerView);
         return rootView;
@@ -31,7 +31,7 @@ public class ShoppingListFragment extends Fragment {
     private void setupRecyclerView(RecyclerView recyclerView){
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(),
-                VersionModel.data));
+                ShopModel.data));
     }
 
     public static class SimpleStringRecyclerViewAdapter extends RecyclerView.Adapter<SimpleStringRecyclerViewAdapter.ViewHolder>{

@@ -63,7 +63,7 @@ public class MoreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_more);
+        setContentView(R.layout.activity_more_food);
 
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_more_food);

@@ -6,15 +6,15 @@ import java.util.ArrayList;
  * Created by HoangLong on 6/27/2017.
  */
 
-public class SectionDataModel {
+public class FoodTypeDataModel {
     private String headerTitle;
-    private ArrayList<SingleItemModel> allItemsInSection;
+    private ArrayList<ItemInTypeFoodModel> allItemsInSection;
 
 
-    public SectionDataModel() {
+    public FoodTypeDataModel() {
 
     }
-    public SectionDataModel(String headerTitle, ArrayList<SingleItemModel> allItemsInSection) {
+    public FoodTypeDataModel(String headerTitle, ArrayList<ItemInTypeFoodModel> allItemsInSection) {
         this.headerTitle = headerTitle;
         this.allItemsInSection = allItemsInSection;
     }
@@ -29,11 +29,11 @@ public class SectionDataModel {
         this.headerTitle = headerTitle;
     }
 
-    public ArrayList<SingleItemModel> getAllItemsInSection() {
+    public ArrayList<ItemInTypeFoodModel> getAllItemsInSection() {
         return allItemsInSection;
     }
 
-    public void setAllItemsInSection(ArrayList<SingleItemModel> allItemsInSection) {
+    public void setAllItemsInSection(ArrayList<ItemInTypeFoodModel> allItemsInSection) {
         this.allItemsInSection = allItemsInSection;
     }
 

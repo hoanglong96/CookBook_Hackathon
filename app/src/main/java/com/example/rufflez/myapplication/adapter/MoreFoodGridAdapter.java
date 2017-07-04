@@ -54,7 +54,7 @@ public class MoreFoodGridAdapter extends BaseAdapter {
         if (convertView == null) {
 
             grid = new View(mContext);
-            grid = inflater.inflate(R.layout.more_food_grid_item, null);
+            grid = inflater.inflate(R.layout.more_item_in_type_food_grid_item, null);
             TextView textView = (TextView) grid.findViewById(R.id.tv_name_food);
             ImageView imageView = (ImageView)grid.findViewById(R.id.img_more_food);
             textView.setText(web[position]);
