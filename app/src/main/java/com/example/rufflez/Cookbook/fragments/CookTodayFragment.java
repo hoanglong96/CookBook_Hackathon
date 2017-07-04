@@ -16,24 +16,24 @@
 
 package com.example.rufflez.Cookbook.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.rufflez.Cookbook.AboutActivity;
 import com.example.rufflez.Cookbook.R;
 
 /**
  * Created by chenupt@gmail.com on 2015/1/31.
  * Description TODO
  */
-public class GuideFragment extends Fragment {
+public class CookTodayFragment extends Fragment {
 
     private int bgRes;
     private ImageView imageView;
@@ -61,8 +61,11 @@ public class GuideFragment extends Fragment {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent shopping = new Intent(getActivity(),AboutActivity.class);
-                startActivity(shopping);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                FavoritesFragment favoritesFragment = new FavoritesFragment();
+                fragmentTransaction.replace(R.id.content_thuc_don,favoritesFragment).commit();
             }
         });
     }

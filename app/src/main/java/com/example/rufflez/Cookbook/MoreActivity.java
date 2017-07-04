@@ -37,7 +37,7 @@ public class MoreActivity extends AppCompatActivity {
             "Bánh bông lanh",
             "Sữa tươi"
 
-    } ;
+    };
     int[] imageId = {
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
@@ -58,8 +58,6 @@ public class MoreActivity extends AppCompatActivity {
     };
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,35 +68,29 @@ public class MoreActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         toolbar.setTitle("Món ăn sáng");
         setSupportActionBar(toolbar);
 
-
         MoreFoodGridAdapter adapter = new MoreFoodGridAdapter(MoreActivity.this, web, imageId);
-        grid=(GridView)findViewById(R.id.grid_view);
+        grid = (GridView) findViewById(R.id.grid_view);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(MoreActivity.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
-                Intent detailFood = new Intent(MoreActivity.this,DetailFoodActivity.class);
+                Toast.makeText(MoreActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                Intent detailFood = new Intent(MoreActivity.this, DetailFoodActivity.class);
                 startActivity(detailFood);
             }
         });
-
     }
 
-
-
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -7,9 +7,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.rufflez.Cookbook.fragments.GuideFragment;
-
+import com.example.rufflez.Cookbook.fragments.CookTodayFragment;
 import com.google.common.collect.Lists;
+
 import java.util.List;
 
 import github.chenupt.multiplemodel.viewpager.ModelPagerAdapter;
@@ -30,10 +30,11 @@ public class CookToday extends ActionBarActivity {
         viewPager = (ScrollerViewPager) findViewById(R.id.view_pager);
         SpringIndicator springIndicator = (SpringIndicator) findViewById(R.id.indicator);
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
 
         PagerModelManager manager = new PagerModelManager();
-        manager.addCommonFragment(GuideFragment.class, getBgRes(), getTitles());
+        manager.addCommonFragment(CookTodayFragment.class, getBgRes(), getTitles());
         ModelPagerAdapter adapter = new ModelPagerAdapter(getSupportFragmentManager(), manager);
         viewPager.setAdapter(adapter);
         viewPager.fixScrollSpeed();
@@ -51,6 +52,11 @@ public class CookToday extends ActionBarActivity {
         return Lists.newArrayList(R.drawable.garan, R.drawable.garan, R.drawable.garan, R.drawable.garan,R.drawable.garan, R.drawable.garan);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
