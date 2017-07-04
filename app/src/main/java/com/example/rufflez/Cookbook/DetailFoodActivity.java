@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -53,6 +54,9 @@ public class DetailFoodActivity extends AppCompatActivity {
             setupViewPager(mViewPager);
         }
 
+        NestedScrollView nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScroolView);
+        nestedScrollView.setFillViewport(true);
+
         //TabLayout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_detail_food);
         tabLayout.setupWithViewPager(mViewPager);
@@ -84,30 +88,30 @@ public class DetailFoodActivity extends AppCompatActivity {
         //Intent
         Intent intent = this.getIntent();
 
-        //Bookmark
-        imgBookMark = (ImageView) findViewById(R.id.book_mark);
-        imgBookMark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isBookMark) {
-                    imgBookMark.setImageResource(R.drawable.heart_outline);
-                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã xóa món ăn khỏi yêu thích", Snackbar.LENGTH_SHORT);
-                    snackbar.show();
-                    isBookMark = false;
-                } else {
-                    imgBookMark.setImageResource(R.drawable.heart_book_mark);
-                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm món ăn vào yêu thích", Snackbar.LENGTH_SHORT)
-                            .setAction("Yêu thích", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                }
-                            });
-                    snackbar.setActionTextColor(Color.YELLOW);
-                    snackbar.show();
-                    isBookMark = true;
-                }
-            }
-        });
+//        //Bookmark
+//        imgBookMark = (ImageView) findViewById(R.id.book_mark);
+//        imgBookMark.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (isBookMark) {
+//                    imgBookMark.setImageResource(R.drawable.heart_outline);
+//                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã xóa món ăn khỏi yêu thích", Snackbar.LENGTH_SHORT);
+//                    snackbar.show();
+//                    isBookMark = false;
+//                } else {
+//                    imgBookMark.setImageResource(R.drawable.heart_book_mark);
+//                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm món ăn vào yêu thích", Snackbar.LENGTH_SHORT)
+//                            .setAction("Yêu thích", new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                }
+//                            });
+//                    snackbar.setActionTextColor(Color.YELLOW);
+//                    snackbar.show();
+//                    isBookMark = true;
+//                }
+//            }
+//        });
 
     }
 
