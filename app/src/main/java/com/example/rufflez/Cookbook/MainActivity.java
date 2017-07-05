@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        collapsingToolbarMain.setTitleEnabled(false);
 
 
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbarMain.setTitle("Title");
+                    collapsingToolbarMain.setTitle("Hôm nay bạn nấu gì?");
                     isVisible = true;
                 } else if(isVisible) {
                     collapsingToolbarMain.setTitle("");

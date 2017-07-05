@@ -65,6 +65,8 @@ public class DetailFoodActivity extends AppCompatActivity {
         final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_detail_food);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar_detail_food);
+        appBarLayout.setExpanded(false);
+        appBarLayout.setActivated(false);
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
             int scrollRange = -1;
@@ -88,30 +90,32 @@ public class DetailFoodActivity extends AppCompatActivity {
         //Intent
         Intent intent = this.getIntent();
 
-//        //Bookmark
-//        imgBookMark = (ImageView) findViewById(R.id.book_mark);
-//        imgBookMark.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (isBookMark) {
-//                    imgBookMark.setImageResource(R.drawable.heart_outline);
-//                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã xóa món ăn khỏi yêu thích", Snackbar.LENGTH_SHORT);
-//                    snackbar.show();
-//                    isBookMark = false;
-//                } else {
-//                    imgBookMark.setImageResource(R.drawable.heart_book_mark);
-//                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm món ăn vào yêu thích", Snackbar.LENGTH_SHORT)
-//                            .setAction("Yêu thích", new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View v) {
-//                                }
-//                            });
-//                    snackbar.setActionTextColor(Color.YELLOW);
-//                    snackbar.show();
-//                    isBookMark = true;
-//                }
-//            }
-//        });
+        //Bookmark
+        imgBookMark = (ImageView) findViewById(R.id.book_mark);
+        imgBookMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isBookMark) {
+                    imgBookMark.setImageResource(R.drawable.heart_outline);
+                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã xóa món ăn khỏi yêu thích", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    isBookMark = false;
+                } else {
+                    imgBookMark.setImageResource(R.drawable.heart_book_mark);
+                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm món ăn vào yêu thích", Snackbar.LENGTH_SHORT)
+                            .setAction("Yêu thích", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                }
+                            });
+                    snackbar.setActionTextColor(Color.YELLOW);
+                    view = snackbar.getView();
+                    view.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    snackbar.show();
+                    isBookMark = true;
+                }
+            }
+        });
 
     }
 
