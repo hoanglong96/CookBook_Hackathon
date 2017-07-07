@@ -1,0 +1,88 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:background="#f7f9f4"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bước 1: Chuẩn bị nguyên liệu"
+                android:textStyle="italic|bold"
+                android:fontFamily="sans-serif-condensed"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv"
+                android:id="@+id/b1"
+                android:text="Gà rán mật ong ăn lúc nóng, và ăn 1 lần sẽ ngon, những lần hâm nóng lại sẽ khiến món ăn này mất đi chất cũng như mùi vị ban đầu của món ăn. Chính vì vậy, để chuẩn bị một đĩa gà rán tẩm mật ong dành cho 4 người trong 1 bữa ăn, các bạn cần chuẩn bị:
+
+7-8 lạng gà ta: Cũng giống món gà rán bột chiên xù, món gà rán tẩm mật ong dùng phần tỏi gà và phần cánh để chế biến là hợp vị nhất.
+50ml mật ong rừng
+Gia vị: Nước mắm, mì chính, hạt tiêu
+Tỏi khô, gừng tươi nạo vỏ, băm nhỏ
+Bột mì
+Ớt tươi
+Dầu ăn"/>
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bước 2: Sơ chế nguyên liệu"
+                android:textStyle="italic|bold"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_below="@+id/b1"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv2"
+                android:id="@+id/b2"
+                android:text="Gà bóp muối hạt, rửa sạch. Các bạn cũng có thể trần qua nước sôi để lọc bỏ những tạp bẩn có trong gà nhé, sau đó rửa nhanh lại bằng nước lạnh để gà được giòn.
+
+Ướp gà với 1 chút gia vị như: nước mắm, hạt tiêu, gừng tỏi băm nhỏ. Khía miếng gà để gia vị được thấm vào thịt.
+Gà sau khi đã ướp, lăn qua bột mì để khi rán được giòn.
+
+Trong lúc chờ gà thấm gia vị, các bạn chế biến nước sốt mật ong: hòa 50ml mật ong, 3 thìa nước mắm, 1 thìa mì chính, khuấy tan."/>
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bước 3: Cách làm món gà rán mật ong ngon miễn chê"
+                android:textStyle="italic|bold"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_below="@+id/b2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv3"
+                android:id="@+id/b3"
+                android:text="Gà bóp muối hạt, rửa sạch. Các bạn cũng có thể trần qua nước sôi để lọc bỏ những tạp bẩn có trong gà nhé, sau đó rửa nhanh lại bằng nước lạnh để gà được giòn.
+
+Ướp gà với 1 chút gia vị như: nước mắm, hạt tiêu, gừng tỏi băm nhỏ. Khía miếng gà để gia vị được thấm vào thịt.
+Gà sau khi đã ướp, lăn qua bột mì để khi rán được giòn.
+
+Trong lúc chờ gà thấm gia vị, các bạn chế biến nước sốt mật ong: hòa 50ml mật ong, 3 thìa nước mắm, 1 thìa mì chính, khuấy tan."/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/garan"
+                android:layout_below="@+id/b3"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
