@@ -36,7 +36,10 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     compile 'com.github.traex.rippleeffect:library:1.3'
+<<<<<<< HEAD
     compile('com.mikepenz:materialdrawer:2.9.8') {
         transitive = true
     }
+=======
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 }

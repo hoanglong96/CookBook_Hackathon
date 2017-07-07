@@ -8,9 +8,14 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main"
     android:orientation="vertical">
+<<<<<<< HEAD
     <ImageView
         android:layout_margin="6dp"
         android:elevation="3dp"
+=======
+
+    <ImageView
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/background"/>
@@ -18,7 +23,12 @@
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent">
+=======
+        android:layout_height="match_parent"
+        >
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 
     </FrameLayout>
 

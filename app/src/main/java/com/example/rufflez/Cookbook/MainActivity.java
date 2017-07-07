@@ -5,44 +5,71 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+<<<<<<< HEAD
 import android.support.v4.app.Fragment;
+=======
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+<<<<<<< HEAD
 import android.view.Gravity;
+=======
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.rufflez.Cookbook.fragments.FavoritesFragment;
 import com.example.rufflez.Cookbook.fragments.HomeFragment;
 import com.example.rufflez.Cookbook.fragments.ShoppingListFragment;
+<<<<<<< HEAD
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+=======
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 
 public class MainActivity extends AppCompatActivity {
+<<<<<<< HEAD
     private Drawer.Result navigationBar;
     private AccountHeader.Result accountHeaderNAV;
     private BottomBar bottomBar;
     private Fragment fragment;
+=======
+
+    BottomBar bottomBar;
+
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
 
         ///=====================================================//
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //=========================================================//
+=======
+//        final CollapsingToolbarLayout collapsingToolbarMain =
+//                (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //collapsingToolbarMain.setTitleEnabled(false);
+
+
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
                 if(tabId == R.id.tab_home){
+<<<<<<< HEAD
                     fragment = new HomeFragment();
                 }
                 if (tabId == R.id.tab_favorites){
@@ -84,6 +111,42 @@ public class MainActivity extends AppCompatActivity {
         navigationBar.addItem(new PrimaryDrawerItem().withName("Home").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
 
 
+=======
+                    HomeFragment homeFragment = new HomeFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content,homeFragment).commit();
+                }
+                if (tabId == R.id.tab_favorites){
+                   FavoritesFragment favoritesFragment = new FavoritesFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content,favoritesFragment).commit();
+                }
+                if(tabId == R.id.tab_shop){
+                    ShoppingListFragment shoppingListFragment = new ShoppingListFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content,shoppingListFragment).commit();
+                }
+            }
+        });
+
+
+//        //Show CollapsingToolbarLayout Title ONLY when collapsed
+//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+//
+//            boolean isVisible = true;
+//            int scrollRange = -1;
+//            @Override
+//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//                if (scrollRange == -1) {
+//                    scrollRange = appBarLayout.getTotalScrollRange();
+//                }
+//                if (scrollRange + verticalOffset == 0) {
+//                    collapsingToolbarMain.setTitle("Hôm nay bạn nấu gì?");
+//                    isVisible = true;
+//                } else if(isVisible) {
+//                    collapsingToolbarMain.setTitle("");
+//                    isVisible = false;
+//                }
+//            }
+//        });
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     }
 
     @Override
@@ -120,7 +183,11 @@ public class MainActivity extends AppCompatActivity {
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
         }
+<<<<<<< HEAD
         return super.onCreateOptionsMenu(menu);
+=======
+          return super.onCreateOptionsMenu(menu);
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     }
 
     @Override
@@ -134,8 +201,17 @@ public class MainActivity extends AppCompatActivity {
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }
+<<<<<<< HEAD
         return super.onOptionsItemSelected(item);
     }
 
 
+=======
+
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
+>>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 }
