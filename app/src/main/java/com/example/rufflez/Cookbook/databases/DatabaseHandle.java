@@ -1,66 +1,156 @@
 package com.example.rufflez.Cookbook.databases;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.rufflez.Cookbook.model.MonChinhModel;
+import com.example.rufflez.Cookbook.model.MonKhaiViModel;
+import com.example.rufflez.Cookbook.model.MonSangModel;
+import com.example.rufflez.Cookbook.model.MonTrangMiengModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by mac-vuongvu on 6/27/17.
+ */
 
 public class DatabaseHandle {
-
-    //1: Create instance MyDatabase
-    private MyDatabase myDatabase;
+    private MyDatabase myDataBase;
 
     public DatabaseHandle(Context context) {
-        myDatabase = new MyDatabase(context);
+        myDataBase = new MyDatabase(context);
     }
 
-    //2: Create instance DatabaseHandle
-    private static DatabaseHandle instance;
+    private static DatabaseHandle handle;
 
-    public static DatabaseHandle getInstance(Context context) {
-        if (instance == null) {
-            instance = new DatabaseHandle(context);
+    public static DatabaseHandle getHandle(Context context) {
+        if (handle == null) {
+            handle = new DatabaseHandle(context);
         }
-        return instance;
+        return handle;
     }
 
-    //3: Create instance SQLiteDatabase
-    private SQLiteDatabase storyDatabase;
+    private SQLiteDatabase foodDataBase;
 
-    //4: get List Story
-    public List<StoryModel> getListStory() {
-        storyDatabase = myDatabase.getReadableDatabase();
-        List<StoryModel> storyModelList = new ArrayList<>();
-        Cursor cursor = storyDatabase.rawQuery("select * from tbl_short_story", null);
+    public List<MonSangModel> getListFoodMonSang() {
+        foodDataBase = myDataBase.getReadableDatabase();
+        List<MonSangModel> foodModelList = new ArrayList<>();
+        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods\n" +
+                "WHERE  loai_mon_an='Món sáng';", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            int id = cursor.getInt(0);
-            String image = cursor.getString(1);
-            String title = cursor.getString(2);
-            String description = cursor.getString(3);
-            String content = cursor.getString(4);
-            String author = cursor.getString(5);
-            Boolean bookmark = cursor.getInt(6) != 0;
+            String typeFood = cursor.getString(1);
+            String avatarFood = cursor.getString(2);
+            String titleFood = cursor.getString(3);
+            String ingredientFood = cursor.getString(4);
+            String methodFood = cursor.getString(5);
+            //Boolean bookmark = cursor.getInt(6) !=0 ;
+            MonSangModel foodModel = new MonSangModel( typeFood, avatarFood, titleFood, ingredientFood, methodFood);
 
-            StoryModel storyModel = new StoryModel(id, image, title, description, content, author, bookmark);
-            storyModelList.add(storyModel);
+            foodModelList.add(foodModel);
             cursor.moveToNext();
         }
-        return storyModelList;
+        return foodModelList;
     }
 
-    public void setBookmark(boolean isBookmark, StoryModel storyModel) {
-        storyDatabase = myDatabase.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        if (isBookmark) {
-            contentValues.put("bookmark", 1);
-        } else {
-            contentValues.put("bookmark", 0);
+    public List<MonKhaiViModel> getListFoodMonKhaiVi() {
+        foodDataBase = myDataBase.getReadableDatabase();
+        List<MonKhaiViModel> foodModelList = new ArrayList<>();
+        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods\n" +
+                "WHERE  loai_mon_an='Món khai vị';", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String typyFood = cursor.getString(1);
+            String avatarFood = cursor.getString(2);
+            String titleFood = cursor.getString(3);
+            String ingredientFood = cursor.getString(4);
+            String methodFood = cursor.getString(5);
+            //Boolean bookmark = cursor.getInt(6) !=0 ;
+
+            MonKhaiViModel foodModel = new MonKhaiViModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood);
+            foodModelList.add(foodModel);
+            cursor.moveToNext();
         }
-        storyDatabase.update("tbl_short_story", contentValues, "id = " + storyModel.getId(), null);
+        return foodModelList;
     }
+
+
+    public List<MonChinhModel> getListFoodMonChinh() {
+        foodDataBase = myDataBase.getReadableDatabase();
+        List<MonChinhModel> foodModelList = new ArrayList<>();
+        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods\n" +
+                "WHERE  loai_mon_an='Món chính';", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String typyFood = cursor.getString(1);
+            String avatarFood = cursor.getString(2);
+            String titleFood = cursor.getString(3);
+            String ingredientFood = cursor.getString(4);
+            String methodFood = cursor.getString(5);
+            //Boolean bookmark = cursor.getInt(6) !=0 ;
+
+            MonChinhModel foodModel = new MonChinhModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood);
+            foodModelList.add(foodModel);
+            cursor.moveToNext();
+        }
+        return foodModelList;
+    }
+
+
+    public List<MonTrangMiengModel> getListFoodMonTrangMieng() {
+        foodDataBase = myDataBase.getReadableDatabase();
+        List<MonTrangMiengModel> foodModelList = new ArrayList<>();
+        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods\n" +
+                "WHERE  loai_mon_an='Món tráng miệng';", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String typyFood = cursor.getString(1);
+            String avatarFood = cursor.getString(2);
+            String titleFood = cursor.getString(3);
+            String ingredientFood = cursor.getString(4);
+            String methodFood = cursor.getString(5);
+            //Boolean bookmark = cursor.getInt(6) !=0 ;
+
+            MonTrangMiengModel foodModel = new MonTrangMiengModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood);
+            foodModelList.add(foodModel);
+            cursor.moveToNext();
+        }
+        return foodModelList;
+    }
+
+    public List<FoodModel> getListFood() {
+        foodDataBase = myDataBase.getReadableDatabase();
+        List<FoodModel> foodModelList = new ArrayList<>();
+        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods\n" ,
+                null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String typyFood = cursor.getString(1);
+            String avatarFood = cursor.getString(2);
+            String titleFood = cursor.getString(3);
+            String ingredientFood = cursor.getString(4);
+            String methodFood = cursor.getString(5);
+            //Boolean bookmark = cursor.getInt(6) !=0 ;
+
+            FoodModel foodModel = new FoodModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood);
+            foodModelList.add(foodModel);
+            cursor.moveToNext();
+        }
+        return foodModelList;
+    }
+
+//    public void setBookmark(boolean isBookmark,FoodModel storyModel){
+//        foodDataBase = myDataBase.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        if(isBookmark){
+//            contentValues.put("bookmark",1);
+//        }else{
+//            contentValues.put("bookmark",0);
+//        }
+//        foodDataBase.update("tbl_short_story",contentValues,"id = " + storyModel,null);
+//    }
+
 }
+

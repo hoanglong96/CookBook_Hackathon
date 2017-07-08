@@ -15,6 +15,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.rufflez.Cookbook.adapter.MoreFoodGridAdapter;
+import com.example.rufflez.myapplication.R;
 
 public class MoreActivity extends AppCompatActivity {
 
@@ -39,8 +40,8 @@ public class MoreActivity extends AppCompatActivity {
 
     };
     int[] imageId = {
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
+            R.drawable.ga,
+            R.drawable.garan,
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,

@@ -1,51 +1,32 @@
-package com.example.rufflez.Cookbook.model;
+package com.example.rufflez.Cookbook.databases;
 
 import java.io.Serializable;
 
 /**
- * Created by mac-vuongvu on 7/7/17.
+ * Created by HoangLong on 6/17/2017.
  */
 
-public class MonKhaiViModel implements Serializable{
-    //    private int id;
-    private String typyFood;
+public class FoodModel implements Serializable {
+    private String typeFood;
     private String avatarFood;
     private String titleFood;
     private String ingredientFood;
     private String methodFood;
-    private boolean bookmark;
 
-    public MonKhaiViModel(String typyFood, String avatarFood, String titleFood, String ingredientFood, String methodFood) {
-//        this.id = id;
-        this.typyFood = typyFood;
+    public FoodModel(String typeFood, String avatarFood, String titleFood, String ingredientFood, String methodFood) {
+        this.typeFood = typeFood;
         this.avatarFood = avatarFood;
         this.titleFood = titleFood;
         this.ingredientFood = ingredientFood;
         this.methodFood = methodFood;
-        this.bookmark =bookmark;
     }
 
-    public boolean isBookmark() {
-        return bookmark;
+    public String getTypeFood() {
+        return typeFood;
     }
 
-    public void setBookmark(boolean bookmark) {
-        this.bookmark = bookmark;
-    }
-    //    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-    public String getTypyFood() {
-        return typyFood;
-    }
-
-    public void setTypyFood(String typyFood) {
-        this.typyFood = typyFood;
+    public void setTypeFood(String typeFood) {
+        this.typeFood = typeFood;
     }
 
     public String getAvatarFood() {
@@ -82,14 +63,12 @@ public class MonKhaiViModel implements Serializable{
 
     @Override
     public String toString() {
-        return "SingleItemModel{" +
-//                "id=" + id +
-                ", typyFood='" + typyFood + '\'' +
+        return "FoodModel{" +
+                "typeFood='" + typeFood + '\'' +
                 ", avatarFood='" + avatarFood + '\'' +
                 ", titleFood='" + titleFood + '\'' +
                 ", ingredientFood='" + ingredientFood + '\'' +
                 ", methodFood='" + methodFood + '\'' +
                 '}';
     }
-
 }

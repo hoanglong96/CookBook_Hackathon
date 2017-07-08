@@ -13,6 +13,7 @@ public class MonChinhModel implements Serializable {
     private String titleFood;
     private String ingredientFood;
     private String methodFood;
+    private Boolean bookmark;
 
     public MonChinhModel(String typyFood, String avatarFood, String titleFood, String ingredientFood, String methodFood) {
 //        this.id = id;
@@ -21,9 +22,18 @@ public class MonChinhModel implements Serializable {
         this.titleFood = titleFood;
         this.ingredientFood = ingredientFood;
         this.methodFood = methodFood;
+        this.bookmark =bookmark;
     }
 
-//    public int getId() {
+    public boolean isBookmark() {
+        return bookmark;
+    }
+
+    public void setBookmark(Boolean bookmark) {
+        this.bookmark = bookmark;
+    }
+
+    //    public int getId() {
 //        return id;
 //    }
 //

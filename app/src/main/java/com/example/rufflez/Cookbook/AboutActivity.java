@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.rufflez.myapplication.R;
+
 /**
  * Created by chenupt@gmail.com on 2015/1/25.
  * Description TODO

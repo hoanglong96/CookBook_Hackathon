@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -13,20 +15,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rufflez.Cookbook.DetailFoodActivity;
-import com.example.rufflez.Cookbook.model.MonTrangMiengModel;
+import com.example.rufflez.Cookbook.databases.FoodModel;
 import com.example.rufflez.myapplication.R;
 
 import java.util.List;
 
+import static com.example.rufflez.myapplication.R.id.tvTitle;
+
 /**
- * Created by mac-vuongvu on 6/27/17.
+ * Created by HoangLong on 7/8/2017.
  */
 
-public class MonTrangMiengAdapter extends RecyclerView.Adapter<MonTrangMiengAdapter.ViewHolder> {
+public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     private Context context;
-    private List<MonTrangMiengModel> singleItemModelList;
+    private List<FoodModel> singleItemModelList;
 
-    public MonTrangMiengAdapter(Context context, List<MonTrangMiengModel> foodModelList) {
+    public FoodAdapter(Context context, List<FoodModel> foodModelList) {
         this.context = context;
         this.singleItemModelList = foodModelList;
     }
@@ -41,14 +45,24 @@ public class MonTrangMiengAdapter extends RecyclerView.Adapter<MonTrangMiengAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        MonTrangMiengModel singleItemModel = singleItemModelList.get(position);
+        final FoodModel singleItemModel = singleItemModelList.get(position);
 
         String image[] =  singleItemModel.getAvatarFood().split(",");
         byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
         holder.foodimage.setImageBitmap(bitmap);
         holder.foodtile.setText(singleItemModel.getTitleFood());
-         }
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailFoodActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("singleItemModel", singleItemModel);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+    }
 
     @Override
     public int getItemCount() {
@@ -58,18 +72,20 @@ public class MonTrangMiengAdapter extends RecyclerView.Adapter<MonTrangMiengAdap
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView foodtile;
         ImageView foodimage;
+        CardView cardView;
         public ViewHolder(View itemView) {
             super(itemView);
             foodimage = (ImageView) itemView.findViewById(R.id.itemImage);
-            foodtile =  (TextView) itemView.findViewById(R.id.tvTitle);
+            foodtile =  (TextView) itemView.findViewById(tvTitle);
+            cardView = itemView.findViewById(R.id.card_view);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context,DetailFoodActivity.class);
-                    context.startActivity(intent);
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(context,DetailFoodActivity.class);
+//                    context.startActivity(intent);
+//                }
+//            });
         }
     }
 }

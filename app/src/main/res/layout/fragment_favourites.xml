@@ -5,4 +5,12 @@
     android:id="@+id/relative_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"></FrameLayout>
+    android:fitsSystemWindows="true">
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="110dp"
+        android:id="@+id/grid_fav"
+        android:numColumns="auto_fit"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+</FrameLayout>

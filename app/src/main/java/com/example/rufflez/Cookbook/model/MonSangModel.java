@@ -13,17 +13,26 @@ public class MonSangModel implements Serializable {
     private String titleFood;
     private String ingredientFood;
     private String methodFood;
+    private boolean bookmark;
 
     public MonSangModel(String typyFood, String avatarFood, String titleFood, String ingredientFood, String methodFood) {
-//        this.id = id;
         this.typyFood = typyFood;
         this.avatarFood = avatarFood;
         this.titleFood = titleFood;
         this.ingredientFood = ingredientFood;
         this.methodFood = methodFood;
+        this.bookmark = bookmark;
     }
 
-//    public int getId() {
+    public boolean isBookmark() {
+        return bookmark;
+    }
+
+    public void setBookmark(boolean bookmark) {
+        this.bookmark = bookmark;
+    }
+
+    //    public int getId() {
 //        return id;
 //    }
 //

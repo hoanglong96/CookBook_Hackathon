@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.myapplication.R;
 
 /**
  * Created by chenupt@gmail.com on 2015/1/31.

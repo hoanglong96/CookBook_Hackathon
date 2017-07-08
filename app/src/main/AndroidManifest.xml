@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rufflez.Cookbook">
+    package="com.example.rufflez.myapplication"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="26" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="26.0.0-alpha1" />
 
     <application
-        android:screenOrientation="portrait"
         android:allowBackup="true"
         android:icon="@drawable/chef"
         android:label="@string/app_name"
-        android:theme="@style/MyMaterialTheme">
+        android:theme="@style/MyMaterialTheme" >
         <activity
-<<<<<<< HEAD
-            android:screenOrientation="portrait"
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
             android:name="com.example.rufflez.Cookbook.MainActivity"
             android:label="Hôm nay bạn nấu gì?"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.rufflez.Cookbook.SplashScreen"
-            android:theme="@style/MyMaterialTheme">
+            android:theme="@style/MyMaterialTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,38 +31,18 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
-            android:screenOrientation="portrait"
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
             android:name="com.example.rufflez.Cookbook.DetailFoodActivity"
             android:label=""
             android:theme="@style/MyMaterialTheme" />
         <activity android:name="com.example.rufflez.Cookbook.MoreActivity" />
         <activity
-<<<<<<< HEAD
-            android:screenOrientation="portrait"
             android:name="com.example.rufflez.Cookbook.CookToday"
             android:label="Thực đơn hôm nay"
-            android:theme="@style/MyMaterialTheme">
-
-        </activity>
-        <activity
-            android:screenOrientation="portrait"
-            android:name="com.example.rufflez.Cookbook.AboutActivity"
-            android:label="About"
-            android:theme="@style/MyMaterialTheme">
-
-        </activity>
-=======
-            android:name="com.example.rufflez.Cookbook.CookToday"
-            android:label="Thực đơn hôm nay"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name="com.example.rufflez.Cookbook.AboutActivity"
             android:label="About"
-            android:theme="@style/MyMaterialTheme"></activity>
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+            android:theme="@style/MyMaterialTheme" />
     </application>
 
 </manifest>

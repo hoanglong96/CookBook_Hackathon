@@ -5,56 +5,35 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-<<<<<<< HEAD
-import android.support.v4.app.Fragment;
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-<<<<<<< HEAD
 import android.view.Gravity;
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.rufflez.Cookbook.fragments.FavoritesFragment;
 import com.example.rufflez.Cookbook.fragments.HomeFragment;
 import com.example.rufflez.Cookbook.fragments.ShoppingListFragment;
-<<<<<<< HEAD
+import com.example.rufflez.myapplication.R;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 
 public class MainActivity extends AppCompatActivity {
-<<<<<<< HEAD
-    private Drawer.Result navigationBar;
-    private AccountHeader.Result accountHeaderNAV;
-    private BottomBar bottomBar;
-    private Fragment fragment;
-=======
 
     BottomBar bottomBar;
+    private Drawer.Result navigationBar;
+    private AccountHeader.Result accountHeaderNAV;
 
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
-
-        ///=====================================================//
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        //=========================================================//
-=======
 //        final CollapsingToolbarLayout collapsingToolbarMain =
 //                (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 //        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
@@ -63,25 +42,28 @@ public class MainActivity extends AppCompatActivity {
         //collapsingToolbarMain.setTitleEnabled(false);
 
 
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                if(tabId == R.id.tab_home){
-<<<<<<< HEAD
-                    fragment = new HomeFragment();
+                if (tabId == R.id.tab_home) {
+                    HomeFragment homeFragment = new HomeFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content, homeFragment).commit();
+                    toolbar.setTitle("Hôm nay bạn nấu gì?");
                 }
-                if (tabId == R.id.tab_favorites){
-                    fragment = new FavoritesFragment();
+                if (tabId == R.id.tab_favorites) {
+                    FavoritesFragment favoritesFragment = new FavoritesFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content, favoritesFragment).commit();
+                    toolbar.setTitle("Món ăn yêu thích");
                 }
-                if(tabId == R.id.tab_shop){
-                    fragment = new ShoppingListFragment();
+                if (tabId == R.id.tab_shop) {
+                    ShoppingListFragment shoppingListFragment = new ShoppingListFragment();
+                   getSupportFragmentManager().beginTransaction().replace(R.id.content, shoppingListFragment).commit();
+                    toolbar.setTitle("Danh sách nguyên liệu");
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.content,fragment).commit();
-
             }
         });
+
         //===========================================================//
         // **** Navigation Bar ***
         // setting header of navigation
@@ -89,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 .withActivity(this)
                 .withCompactStyle(false)
                 .withSavedInstance(savedInstanceState)
-                .withHeaderBackground(R.drawable.background) // bacground header
+                .withHeaderBackground(R.drawable.background_navigation) // bacground header
                 .build();
         // setting for navigation
         navigationBar = new Drawer()
@@ -103,29 +85,14 @@ public class MainActivity extends AppCompatActivity {
                 .withSelectedItem(0)
                 .build();
         // add item for navigation
-        navigationBar.addItem(new PrimaryDrawerItem().withName("Món Ăn Sáng").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
-        navigationBar.addItem(new PrimaryDrawerItem().withName("Món Khai Vị").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
-        navigationBar.addItem(new PrimaryDrawerItem().withName("Món Ăn Chính").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
-        navigationBar.addItem(new PrimaryDrawerItem().withName("Món Tráng Miệng").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
-        navigationBar.addItem(new PrimaryDrawerItem().withName("Home").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
-        navigationBar.addItem(new PrimaryDrawerItem().withName("Home").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
-
-
-=======
-                    HomeFragment homeFragment = new HomeFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content,homeFragment).commit();
-                }
-                if (tabId == R.id.tab_favorites){
-                   FavoritesFragment favoritesFragment = new FavoritesFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content,favoritesFragment).commit();
-                }
-                if(tabId == R.id.tab_shop){
-                    ShoppingListFragment shoppingListFragment = new ShoppingListFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content,shoppingListFragment).commit();
-                }
-            }
-        });
-
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Trang chủ").withIcon(getResources().getDrawable(R.drawable.ic_home_24)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Món yêu thích").withIcon(getResources().getDrawable(R.drawable.heart)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Thực đơn hôm nay").withIcon(getResources().getDrawable(R.drawable.ic_list_24)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Danh sách nguyên liệu").withIcon(getResources().getDrawable(R.drawable.cart_24dp)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Món ăn sáng").withIcon(getResources().getDrawable(R.drawable.ic_free_breakfast_black_24dp)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Món khai vị").withIcon(getResources().getDrawable(R.drawable.ic_local_pizza_black_24dp)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Món ăn chính").withIcon(getResources().getDrawable(R.drawable.ic_restaurant_menu_black_24dp)));
+        navigationBar.addItem(new PrimaryDrawerItem().withName("Món tráng miệng").withIcon(getResources().getDrawable(R.drawable.ic_cake_black_24dp)));
 
 //        //Show CollapsingToolbarLayout Title ONLY when collapsed
 //        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -146,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     }
+
 
     @Override
     public void onBackPressed() {
@@ -183,11 +150,7 @@ public class MainActivity extends AppCompatActivity {
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
         }
-<<<<<<< HEAD
         return super.onCreateOptionsMenu(menu);
-=======
-          return super.onCreateOptionsMenu(menu);
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     }
 
     @Override
@@ -201,17 +164,8 @@ public class MainActivity extends AppCompatActivity {
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }
-<<<<<<< HEAD
-        return super.onOptionsItemSelected(item);
-    }
-
-
-=======
-
-
 
 
         return super.onOptionsItemSelected(item);
     }
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 }

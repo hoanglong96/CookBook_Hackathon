@@ -1,10 +1,13 @@
 package com.example.rufflez.Cookbook;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.rufflez.myapplication.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,6 +39,7 @@ public class SplashScreen extends AppCompatActivity {
                         @Override
                         public void run() {
                             textView.setText(String.valueOf(i)+"%");
+                            textView.setTextColor(Color.CYAN);
                         }
                     });
                     progressBar.setProgress(i);

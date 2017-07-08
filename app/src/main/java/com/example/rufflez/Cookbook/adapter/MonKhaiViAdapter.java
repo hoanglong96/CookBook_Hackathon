@@ -1,6 +1,7 @@
 package com.example.rufflez.Cookbook.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
@@ -11,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.Cookbook.DetailFoodActivity;
 import com.example.rufflez.Cookbook.model.MonKhaiViModel;
-import com.example.rufflez.Cookbook.model.MonSangModel;
+import com.example.rufflez.myapplication.R;
 
 import java.util.List;
 
@@ -61,6 +62,14 @@ public class MonKhaiViAdapter extends RecyclerView.Adapter<MonKhaiViAdapter.View
             super(itemView);
             foodimage = (ImageView) itemView.findViewById(R.id.itemImage);
             foodtile =  (TextView) itemView.findViewById(R.id.tvTitle);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context,DetailFoodActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

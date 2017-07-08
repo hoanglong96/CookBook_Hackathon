@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
-        id="@+id/tab_favorites"
-        icon="@drawable/ic_favorite_black_24dp"
-        title="Favorites" />
-    <tab
         id="@+id/tab_home"
         icon="@drawable/ic_home_black_24dp"
         title="Home" />
+    <tab
+        id="@+id/tab_favorites"
+        icon="@drawable/ic_favorite_black_24dp"
+        title="Favorites" />
     <tab
         id="@+id/tab_shop"
         icon="@drawable/cart_24dp"

@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#F44336</color>
-<<<<<<< HEAD
-    <color name="primaryDark">#870505</color>
-    <color name="colorPrimary">#c72a03</color>
-    <color name="colorPrimaryDark">#9f2604</color>
-    <color name="colorPrimaryDark2">#717171</color>
-
-    <color name="textColorPrimary">#000000</color>
-    <color name="window_background">#000000</color>
-    <color name="navigationBarColor">#000000</color>
-    <color name="colorAccent">#41affd</color>
-=======
     <color name="primaryDark">#C62828</color>
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimaryDark">#F44336</color>
     <color name="textColorPrimary">#000000</color>
     <color name="window_background">#000000</color>
     <color name="navigationBarColor">#000000</color>
-    <color name="colorAccent">#c8e8ff</color>
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+    <color name="colorAccent">#808080</color>
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#e5e5e5</color>
     <color name="half_black">#808080</color>
-    <color name="white">#fafafa</color>
+    <color name="white">#FFFFFF</color>
     <color name="white_pressed">#f1f1f1</color>
     <color name="pink">#e91e63</color>
     <color name="pink_pressed">#ec407a</color>

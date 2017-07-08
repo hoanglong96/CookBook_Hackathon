@@ -22,6 +22,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile('com.mikepenz:materialdrawer:2.9.8') {
+        transitive = true
+    }
     compile 'com.etsy.android.grid:library:1.0.5'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.getbase:floatingactionbutton:1.10.1'
@@ -36,10 +39,4 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     compile 'com.github.traex.rippleeffect:library:1.3'
-<<<<<<< HEAD
-    compile('com.mikepenz:materialdrawer:2.9.8') {
-        transitive = true
-    }
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 }

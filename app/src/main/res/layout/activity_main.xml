@@ -4,71 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:background="#f7f7f7"
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context="com.example.rufflez.Cookbook.MainActivity">
 
     <android.support.design.widget.AppBarLayout
-<<<<<<< HEAD
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/MyMaterialTheme.AppBarOverlay">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways">
-            <android.support.v7.widget.Toolbar
-                android:theme="@style/ToolbarTheme"
-                android:gravity="center"
-                app:titleTextColor="#fff"
-                android:textAlignment="center"
-                app:layout_scrollFlags="scroll|enterAlways"
-                android:id="@+id/toolbar"
-                android:background="@color/colorPrimary"
-                app:layout_collapseMode="pin"
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize">
-            </android.support.v7.widget.Toolbar>
-
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".MainActivity"
-        tools:showIn="@layout/activity_main">
-    <include layout="@layout/content_main"/>
-    </android.support.v4.widget.NestedScrollView>
-    <com.roughike.bottombar.BottomBar
-        android:elevation="2dp"
-        android:background="#ffffff"
-        android:theme="@style/AppTheme"
-        android:textAlignment="center"
-        app:bb_behavior="shifting|shy|iconsOnly"
-        app:bb_tabXmlResource="@xml/bottombar_tabs_three"
-        android:gravity="center"
-        android:layout_weight="1"
-        app:bb_activeTabAlpha="1.5"
-        app:bb_inActiveTabColor="#393939"
-        android:id="@+id/bottomBar"
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-    </com.roughike.bottombar.BottomBar>
-=======
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -76,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@color/primary"
             android:elevation="10dp"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             android:minHeight="?attr/actionBarSize"
@@ -88,6 +27,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:background="@color/white"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".MainActivity"
@@ -101,10 +41,10 @@
         android:layout_alignParentBottom="true"
         android:textAlignment="center"
         android:layout_gravity="bottom"
-        app:bb_tabXmlResource="@xml/bottombar_tabs_three"
+        android:background="@color/primary"
+        app:bb_tabXmlResource="@xml/bottombar_tabs"
         app:bb_behavior="shifting|shy|iconsOnly" />
 
 
 
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
 </android.support.design.widget.CoordinatorLayout>

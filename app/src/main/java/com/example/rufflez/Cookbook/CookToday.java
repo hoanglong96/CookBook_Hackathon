@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.rufflez.Cookbook.fragments.CookTodayFragment;
+import com.example.rufflez.myapplication.R;
 import com.google.common.collect.Lists;
 
 import java.util.List;

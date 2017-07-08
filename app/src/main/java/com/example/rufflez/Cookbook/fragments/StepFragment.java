@@ -6,7 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.myapplication.R;
+
 
 /**
  * A simple {@link Fragment} subclass.

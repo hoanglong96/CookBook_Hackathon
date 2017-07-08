@@ -32,8 +32,7 @@
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="120dp"
-        android:gravity="center"
+        android:columnWidth="110dp"
         android:id="@+id/grid_view"
         android:numColumns="auto_fit"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity"
     android:background="#f7f9f4"
     >
     <ScrollView
@@ -15,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/tv_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bước 1: Chuẩn bị nguyên liệu"
@@ -25,7 +24,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv"
+                android:layout_below="@+id/tv_detail"
                 android:id="@+id/b1"
                 android:text="Gà rán mật ong ăn lúc nóng, và ăn 1 lần sẽ ngon, những lần hâm nóng lại sẽ khiến món ăn này mất đi chất cũng như mùi vị ban đầu của món ăn. Chính vì vậy, để chuẩn bị một đĩa gà rán tẩm mật ong dành cho 4 người trong 1 bữa ăn, các bạn cần chuẩn bị:
 

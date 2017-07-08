@@ -11,16 +11,15 @@ import android.widget.TextView;
 import com.example.rufflez.myapplication.R;
 
 /**
- * Created by HoangLong on 7/1/2017.
+ * Created by HoangLong on 7/8/2017.
  */
 
-public class MoreFoodGridAdapter extends BaseAdapter {
-
+public class FavFoodAdapter extends BaseAdapter{
     private Context mContext;
     private final String[] web;
     private final int[] Imageid;
 
-    public MoreFoodGridAdapter(Context c,String[] web,int[] Imageid ) {
+    public FavFoodAdapter(Context c,String[] web,int[] Imageid ) {
         mContext = c;
         this.Imageid = Imageid;
         this.web = web;
@@ -54,9 +53,9 @@ public class MoreFoodGridAdapter extends BaseAdapter {
         if (convertView == null) {
 
             grid = new View(mContext);
-            grid = inflater.inflate(R.layout.more_item_in_type_food_grid_item, null);
-            TextView textView = (TextView) grid.findViewById(R.id.tv_name_food);
-            ImageView imageView = (ImageView)grid.findViewById(R.id.img_more_food);
+            grid = inflater.inflate(R.layout.item_list_fav, null);
+            TextView textView = (TextView) grid.findViewById(R.id.tv_name_food_fav);
+            ImageView imageView = (ImageView)grid.findViewById(R.id.img_food_fav);
             textView.setText(web[position]);
             imageView.setImageResource(Imageid[position]);
         } else {

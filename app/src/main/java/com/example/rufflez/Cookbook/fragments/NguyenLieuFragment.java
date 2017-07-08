@@ -3,6 +3,7 @@ package com.example.rufflez.Cookbook.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.R;
+import com.example.rufflez.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +32,22 @@ public class NguyenLieuFragment extends Fragment{
     private RelativeLayout mRelativeLayout;
     private Button btnCheckAll;
     private boolean isCheckAll;
-
+    int index = 0;
+    public static List<String> trees = Arrays.asList(
+            "7-8 lạng gà ta",
+            "50ml mật ong rừng",
+            "Nước mắm",
+            "Mì chính",
+            "Hạt tiêu",
+            "Tỏi khô",
+            "Gừng tươi băm nhỏ",
+            "Bột mỳ",
+            "Ớt tươi",
+            "Dầu ăn"
+    );
+    SparseBooleanArray clickedItemPositions = new SparseBooleanArray();
+    String valueItemCheck = null;
+    private ArrayList<String> itemCheckList = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_nguyen_lieu, container, false);
@@ -58,46 +75,39 @@ public class NguyenLieuFragment extends Fragment{
             }
         });
 
-        List<String> trees = Arrays.asList(
-                "7-8 lạng gà ta",
-                "50ml mật ong rừng",
-                "Nước mắm",
-                "Mì chính",
-                "Hạt tiêu",
-                "Tỏi khô",
-                "Gừng tươi băm nhỏ",
-                "Bột mỳ",
-                "Ớt tươi",
-                "Dầu ăn"
-        );
 
         ArrayAdapter<String> adapter = new ArrayAdapter(
                 getActivity(),
                 android.R.layout.simple_list_item_multiple_choice,
                 trees
         );
-
+        clickedItemPositions = mListView.getCheckedItemPositions();
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SparseBooleanArray clickedItemPositions = mListView.getCheckedItemPositions();
-                mTextView.setText("Nguyên liệu đã chọn - ");
+                mTextView.setText("");
                 for(int index=0;index<clickedItemPositions.size();index++) {
                     // Get the checked status of the current item
                     boolean checked = clickedItemPositions.valueAt(index);
-
                     if (checked) {
                         // If the current item is checked
                         int key = clickedItemPositions.keyAt(index);
                         String item = (String) mListView.getItemAtPosition(key);
-
                         // Display the checked items on TextView
-                        mTextView.setText(mTextView.getText() + item + " | ");
+                        mTextView.setText(mTextView.getText() + item + ",");
+                        valueItemCheck = mTextView.getText().toString();
+                    }
+                    if(index == clickedItemPositions.size()){
+                        btnCheckAll.setText("Bỏ tất cả");
+                        isCheckAll =false;
                     }
                 }
+
             }
         });
+
+        Log.d("a", "onCreateView: " + clickedItemPositions);
 
         return rootView;
     }

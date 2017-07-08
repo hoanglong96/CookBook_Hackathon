@@ -4,9 +4,16 @@ package com.example.rufflez.Cookbook.model;
  * Created by rufflez on 10/4/15.
  */
 public class ShopModel {
-    public static final String[] data = {
-            "cupcake", "donut", "eclair", "froyo", "gingerbread",
-            "honeycomb", "ice cream sandwich", "jelly bean", "kit kat",
-            "Lollipop", "marshmallow"
-    };
+    private String itemNguyenLieu;
+
+    public ShopModel(String itemNguyenLieu) {
+        this.itemNguyenLieu = itemNguyenLieu;
+    }
+
+    public String getItemNguyenLieu() {        return itemNguyenLieu;
+    }
+
+    public void setItemNguyenLieu(String itemNguyenLieu) {
+        this.itemNguyenLieu = itemNguyenLieu;
+    }
 }

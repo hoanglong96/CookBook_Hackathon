@@ -5,9 +5,15 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/background"/>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,89 +26,54 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 card_view:cardCornerRadius="3dp"
-<<<<<<< HEAD
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                card_view:cardElevation="3dp">
-                <RelativeLayout
-                    android:background="@drawable/shape3"
-=======
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                card_view:cardElevation="6dp">
+                card_view:cardElevation="3dp">
                 <RelativeLayout
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/shape3"
                     >
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
-                        android:padding="1dp"
-                        android:id="@+id/btn_an_sang"
-                        >
-                        <TextView
-                            android:textStyle="bold"
-=======
                         android:padding="2dp"
                         android:id="@+id/btn_an_sang"
                         >
                         <TextView
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:id="@+id/titleAnSang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textStyle="bold"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
                             android:layout_gravity="center_vertical"
                             android:layout_toLeftOf="@+id/btnMore_an_sang"
                             android:text="Món ăn sáng"
-<<<<<<< HEAD
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/colorPrimaryDark2"
-=======
-                            android:paddingLeft="6dp"
-                            android:textColor="#00695C"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+                            android:paddingLeft="8dp"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textSize="18sp"
                             android:fontFamily="sans-serif-condensed"/>
 
                         <TextView
                             android:id="@+id/btnMore_an_sang"
                             android:layout_width="wrap_content"
-<<<<<<< HEAD
-                            android:layout_height="40dp"
-                            android:gravity="center"
-                            android:textAllCaps="true"
-                            android:paddingRight="16dp"
-=======
                             android:layout_height="42dp"
                             android:gravity="center"
-                            android:textAllCaps="true"
+                            android:textAllCaps="false"
                             android:paddingRight="10dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:text="Thêm"
-<<<<<<< HEAD
-                            android:textColor="@color/primary" />
-=======
+                            android:text="Xem thêm"
                             android:textColor="#4CAF50" />
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                     </RelativeLayout>
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycler_view_list_an_sang"
                         android:layout_width="match_parent"
-<<<<<<< HEAD
-                        android:layout_height="170dp"
-=======
                         android:layout_height="180dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                         android:layout_gravity="center_vertical"
                         android:orientation="horizontal"
                         android:layout_below="@+id/btn_an_sang"/>
@@ -111,10 +82,6 @@
 
 
         </LinearLayout>
-<<<<<<< HEAD
-
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,39 +94,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 card_view:cardCornerRadius="3dp"
-<<<<<<< HEAD
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
                 card_view:cardElevation="3dp">
                 <RelativeLayout
                     android:background="@drawable/shape3"
-=======
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                card_view:cardElevation="6dp">
-                <RelativeLayout
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     >
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
-                        android:padding="1dp"
-                        android:id="@+id/btn_mon_khai_vi"
-                        >
-                        <TextView
-                            android:textStyle="bold"
-                            android:id="@+id/titleKhaiVi"
-=======
                         android:padding="2dp"
                         android:id="@+id/btn_mon_khai_vi">
                         <TextView
                             android:id="@+id/itemTitle_khai_vi"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
@@ -167,50 +117,30 @@
                             android:layout_centerVertical="true"
                             android:layout_gravity="center_vertical"
                             android:layout_toLeftOf="@+id/btnMore_khai_vi"
-<<<<<<< HEAD
-                            android:text="Món ăn sáng"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/colorPrimaryDark2"
-=======
                             android:text="Món khai vị"
                             android:paddingLeft="6dp"
-                            android:textColor="#00695C"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
+                            android:textStyle="bold"
                             android:textSize="18sp"
                             android:fontFamily="sans-serif-condensed"/>
 
                         <TextView
                             android:id="@+id/btnMore_khai_vi"
                             android:layout_width="wrap_content"
-<<<<<<< HEAD
-                            android:layout_height="40dp"
-                            android:gravity="center"
-                            android:textAllCaps="true"
-                            android:paddingRight="16dp"
-=======
                             android:layout_height="42dp"
                             android:gravity="center"
-                            android:textAllCaps="true"
+                            android:textAllCaps="false"
                             android:paddingRight="10dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:text="Thêm"
-<<<<<<< HEAD
-                            android:textColor="@color/primary" />
-=======
+                            android:text="Xem thêm"
                             android:textColor="#4CAF50" />
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                     </RelativeLayout>
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycler_view_list_khai_vi"
                         android:layout_width="match_parent"
-<<<<<<< HEAD
-                        android:layout_height="170dp"
-=======
                         android:layout_height="180dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                         android:layout_gravity="center_vertical"
                         android:orientation="horizontal"
                         android:layout_below="@+id/btn_mon_khai_vi"/>
@@ -219,15 +149,10 @@
 
 
         </LinearLayout>
-<<<<<<< HEAD
-
-=======
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
             android:background="?android:selectableItemBackground"
             android:orientation="vertical"
             android:padding="5dp">
@@ -235,35 +160,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 card_view:cardCornerRadius="3dp"
-<<<<<<< HEAD
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                card_view:cardElevation="3dp">
-=======
-                android:layout_marginTop="12dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                card_view:cardElevation="6dp">
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+                card_view:cardElevation="3dp">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/shape3"
                     >
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
-                        android:padding="1dp"
-                        android:id="@+id/btn_mon_chinh">
-                        <TextView
-                            android:textStyle="bold"
-
-=======
                         android:padding="2dp"
                         android:id="@+id/btn_mon_chinh">
                         <TextView
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:id="@+id/itemTitle_mon_chinh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -273,48 +184,29 @@
                             android:layout_gravity="center_vertical"
                             android:layout_toLeftOf="@+id/btnMore_mon_chinh"
                             android:text="Món chính"
-<<<<<<< HEAD
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/colorPrimaryDark2"
-=======
                             android:paddingLeft="6dp"
-                            android:textColor="#00695C"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textSize="18sp"
+                            android:textStyle="bold"
                             android:fontFamily="sans-serif-condensed"/>
 
                         <TextView
                             android:id="@+id/btnMore_mon_chinh"
                             android:layout_width="wrap_content"
-<<<<<<< HEAD
-                            android:layout_height="40dp"
-                            android:gravity="center"
-                            android:textAllCaps="true"
-                            android:paddingRight="16dp"
-=======
                             android:layout_height="42dp"
                             android:gravity="center"
-                            android:textAllCaps="true"
+                            android:textAllCaps="false"
                             android:paddingRight="10dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:text="Thêm"
-<<<<<<< HEAD
-                            android:textColor="@color/primary" />
-=======
+                            android:text="Xem thêm"
                             android:textColor="#4CAF50" />
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                     </RelativeLayout>
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycler_view_list_mon_chinh"
                         android:layout_width="match_parent"
-<<<<<<< HEAD
-                        android:layout_height="170dp"
-=======
                         android:layout_height="180dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                         android:layout_gravity="center_vertical"
                         android:orientation="horizontal"
                         android:layout_below="@+id/btn_mon_chinh"/>
@@ -330,45 +222,26 @@
 
             android:background="?android:selectableItemBackground"
             android:orientation="vertical"
-<<<<<<< HEAD
-            android:padding="5dp"
-            android:layout_marginBottom="20dp">
-=======
             android:padding="5dp">
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 card_view:cardCornerRadius="3dp"
-<<<<<<< HEAD
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                card_view:cardElevation="3dp">
-=======
-                android:layout_marginTop="12dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                card_view:cardElevation="6dp">
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+                card_view:cardElevation="3dp">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/shape3"
                     >
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
-                        android:padding="1dp"
-                        android:id="@+id/btn_mon_trang_mieng">
-                        <TextView
-                            android:textStyle="bold"
-
-=======
                         android:padding="2dp"
                         android:id="@+id/btn_mon_trang_mieng">
                         <TextView
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:id="@+id/itemTitle_mon_trang_mieng"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -378,48 +251,29 @@
                             android:layout_gravity="center_vertical"
                             android:layout_toLeftOf="@+id/btnMore_mon_trang_mieng"
                             android:text="Món tráng miệng"
-<<<<<<< HEAD
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/colorPrimaryDark2"
-=======
                             android:paddingLeft="6dp"
-                            android:textColor="#00695C"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
+                            android:textStyle="bold"
                             android:textSize="18sp"
                             android:fontFamily="sans-serif-condensed"/>
 
                         <TextView
                             android:id="@+id/btnMore_mon_trang_mieng"
                             android:layout_width="wrap_content"
-<<<<<<< HEAD
-                            android:layout_height="40dp"
-                            android:gravity="center"
-                            android:textAllCaps="true"
-                            android:paddingRight="16dp"
-=======
                             android:layout_height="42dp"
                             android:gravity="center"
-                            android:textAllCaps="true"
+                            android:textAllCaps="false"
                             android:paddingRight="10dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:text="Thêm"
-<<<<<<< HEAD
-                            android:textColor="@color/primary" />
-=======
+                            android:text="Xem thêm"
                             android:textColor="#4CAF50" />
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                     </RelativeLayout>
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycler_view_list_mon_trang_mieng"
                         android:layout_width="match_parent"
-<<<<<<< HEAD
-                        android:layout_height="170dp"
-=======
                         android:layout_height="180dp"
->>>>>>> b531bf41306e305fbb4f182bedbbad6fb65e772b
                         android:layout_gravity="center_vertical"
                         android:orientation="horizontal"
                         android:layout_below="@+id/btn_mon_trang_mieng"/>
