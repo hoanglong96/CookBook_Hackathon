@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.rufflez.myapplication.R;
@@ -29,10 +28,8 @@ public class NguyenLieuFragment extends Fragment{
 
     private ListView mListView;
     private TextView mTextView;
-    private RelativeLayout mRelativeLayout;
     private Button btnCheckAll;
     private boolean isCheckAll;
-    int index = 0;
     public static List<String> trees = Arrays.asList(
             "7-8 lạng gà ta",
             "50ml mật ong rừng",
@@ -53,7 +50,6 @@ public class NguyenLieuFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_nguyen_lieu, container, false);
         mListView = (ListView) rootView.findViewById(R.id.lv);
         mTextView = (TextView) rootView.findViewById(R.id.tv);
-        mRelativeLayout = (RelativeLayout) rootView.findViewById(R.id.rl);
         btnCheckAll = rootView.findViewById(R.id.btn_check_all);
 
         btnCheckAll.setOnClickListener(new View.OnClickListener() {

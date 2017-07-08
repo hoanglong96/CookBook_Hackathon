@@ -11,29 +11,33 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.rufflez.Cookbook.databases.FoodModel;
-import com.example.rufflez.Cookbook.fragments.NguyenLieuFragment;
-import com.example.rufflez.Cookbook.fragments.StepFragment;
 import com.example.rufflez.Cookbook.model.MonChinhModel;
 import com.example.rufflez.Cookbook.model.MonSangModel;
 import com.example.rufflez.myapplication.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DetailFoodActivity extends AppCompatActivity {
 
-    private ViewPager mViewPager;
+    private ViewPager mViewPager,mViewPagerStep;
     ImageView imgBookMark;
     boolean isBookMark;
     private FoodModel foodModel;
@@ -42,6 +46,27 @@ public class DetailFoodActivity extends AppCompatActivity {
     private ImageView imageToolbar;
     private TextView titleToolbar;
 
+
+    //CardView
+    private ListView mListView;
+    private TextView mTextView;
+    private Button btnCheckAll;
+    private boolean isCheckAll;
+    public static List<String> trees = Arrays.asList(
+            "7-8 lạng gà ta",
+            "50ml mật ong rừng",
+            "Nước mắm",
+            "Mì chính",
+            "Hạt tiêu",
+            "Tỏi khô",
+            "Gừng tươi băm nhỏ",
+            "Bột mỳ",
+            "Ớt tươi",
+            "Dầu ăn"
+    );
+    SparseBooleanArray clickedItemPositions = new SparseBooleanArray();
+    String valueItemCheck = null;
+    private String[] itemCheckList ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +79,6 @@ public class DetailFoodActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
 
-
-        //View paper
-        mViewPager = (ViewPager) findViewById(R.id.container_detail_food);
-        if (mViewPager != null) {
-            setupViewPager(mViewPager);
-        }
-
-        NestedScrollView nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScroolView);
-        nestedScrollView.setFillViewport(true);
 
         //Intent
         Intent intent = this.getIntent();
@@ -78,6 +94,63 @@ public class DetailFoodActivity extends AppCompatActivity {
         setupUI();
         loadData();
 
+
+        mListView = (ListView) findViewById(R.id.lv);
+        mTextView = (TextView) findViewById(R.id.tv);
+        btnCheckAll = (Button) findViewById(R.id.btn_check_all);
+
+        btnCheckAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isCheckAll){
+                    for ( int i=0; i < mListView.getChildCount(); i++) {
+                        mListView.setItemChecked(i, false);
+                    }
+                    btnCheckAll.setText("Chọn tất cả");
+                    isCheckAll = false;
+                }else{
+                    for ( int i=0; i < mListView.getChildCount(); i++) {
+                        mListView.setItemChecked(i, true);
+                    }
+                    btnCheckAll.setText("Bỏ tất cả");
+                    isCheckAll = true;
+                }
+            }
+        });
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(
+                this,
+                android.R.layout.simple_list_item_multiple_choice,
+                trees
+        );
+        clickedItemPositions = mListView.getCheckedItemPositions();
+        mListView.setAdapter(adapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mTextView.setText("");
+                for(int index=0;index<clickedItemPositions.size();index++) {
+                    // Get the checked status of the current item
+                    boolean checked = clickedItemPositions.valueAt(index);
+                    if (checked) {
+                        // If the current item is checked
+                        int key = clickedItemPositions.keyAt(index);
+                        String item = (String) mListView.getItemAtPosition(key);
+                        // Display the checked items on TextView
+                        mTextView.setText(mTextView.getText() + item + ",");
+                        valueItemCheck = mTextView.getText().toString();
+                    }
+                    if(index == clickedItemPositions.size()){
+                        btnCheckAll.setText("Bỏ tất cả");
+                        isCheckAll =false;
+                    }
+
+                }
+                itemCheckList = valueItemCheck.split(",");
+                Log.d("av", "onCreate: " + itemCheckList.length);
+            }
+        });
     }
 
 //    private void setBookmark() {
@@ -104,12 +177,6 @@ public class DetailFoodActivity extends AppCompatActivity {
 //        }
 //    }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new NguyenLieuFragment(), "Nguyên liệu");
-        adapter.addFrag(new StepFragment(), "Cách làm");
-        viewPager.setAdapter(adapter);
-    }
 
     @Override
     public boolean onSupportNavigateUp() {

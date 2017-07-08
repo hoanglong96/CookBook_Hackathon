@@ -30,7 +30,7 @@ public class ShoppingListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.shopping_fragment, container, false);
-        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycleview);
+        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(),
                 NguyenLieuFragment.trees));
@@ -91,7 +91,7 @@ public class ShoppingListFragment extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(android.R.layout.simple_list_item_1, parent, false);
+                    .inflate(android.R.layout.simple_list_item_multiple_choice, parent, false);
             return new ViewHolder(view);
         }
 
