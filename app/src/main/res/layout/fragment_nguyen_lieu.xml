@@ -9,40 +9,20 @@
     android:descendantFocusability="blocksDescendants"
     android:background="#f7f9f4"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linerText">
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:text="Chọn nguyên liệu để chuẩn bị đi chợ nào !"
-            android:textStyle="italic"
-            android:fontFamily="sans-serif-condensed"
-            />
-
-        <Button
-            android:id="@+id/btn_check_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/tv"
-            android:layout_alignParentEnd="true"
-            android:gravity="center"
-            android:text="Chọn tất cả"
-            android:textSize="12sp"
-            android:textColor="@color/white"
-            android:background="@drawable/select_all_button"
-            android:textAllCaps="false"
-            />
-    </RelativeLayout>
+        android:text="Chọn nguyên liệu để chuẩn bị đi chợ nào !"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-condensed"
+        />
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:choiceMode="multipleChoice"
-        android:layout_below="@id/linerText"
+        android:layout_below="@id/tv"
         >
     </ListView>
 

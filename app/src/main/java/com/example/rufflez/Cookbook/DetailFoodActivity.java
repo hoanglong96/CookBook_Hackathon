@@ -21,14 +21,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.rufflez.Cookbook.databases.FoodModel;
-import com.example.rufflez.Cookbook.model.MonChinhModel;
-import com.example.rufflez.Cookbook.model.MonSangModel;
 import com.example.rufflez.myapplication.R;
 
 import java.util.ArrayList;
@@ -37,20 +34,16 @@ import java.util.List;
 
 public class DetailFoodActivity extends AppCompatActivity {
 
-    private ViewPager mViewPager,mViewPagerStep;
+    private ViewPager mViewPager, mViewPagerStep;
     ImageView imgBookMark;
     boolean isBookMark;
     private FoodModel foodModel;
-    MonSangModel monSangModel;
-    MonChinhModel monChinhModel;
     private ImageView imageToolbar;
-    private TextView titleToolbar;
-
-
+    private TextView titleToolbar,nameTypeFood;
+    Toolbar toolbar;
     //CardView
     private ListView mListView;
     private TextView mTextView;
-    private Button btnCheckAll;
     private boolean isCheckAll;
     public static List<String> trees = Arrays.asList(
             "7-8 lạng gà ta",
@@ -66,19 +59,19 @@ public class DetailFoodActivity extends AppCompatActivity {
     );
     SparseBooleanArray clickedItemPositions = new SparseBooleanArray();
     String valueItemCheck = null;
-    private String[] itemCheckList ;
+    public static String[] itemCheckList = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_food);
         final ImageView ivBookMark;
         //Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
-
 
         //Intent
         Intent intent = this.getIntent();
@@ -97,27 +90,6 @@ public class DetailFoodActivity extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.lv);
         mTextView = (TextView) findViewById(R.id.tv);
-        btnCheckAll = (Button) findViewById(R.id.btn_check_all);
-
-        btnCheckAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(isCheckAll){
-                    for ( int i=0; i < mListView.getChildCount(); i++) {
-                        mListView.setItemChecked(i, false);
-                    }
-                    btnCheckAll.setText("Chọn tất cả");
-                    isCheckAll = false;
-                }else{
-                    for ( int i=0; i < mListView.getChildCount(); i++) {
-                        mListView.setItemChecked(i, true);
-                    }
-                    btnCheckAll.setText("Bỏ tất cả");
-                    isCheckAll = true;
-                }
-            }
-        });
-
 
         ArrayAdapter<String> adapter = new ArrayAdapter(
                 this,
@@ -130,7 +102,7 @@ public class DetailFoodActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mTextView.setText("");
-                for(int index=0;index<clickedItemPositions.size();index++) {
+                for (int index = 0; index < clickedItemPositions.size(); index++) {
                     // Get the checked status of the current item
                     boolean checked = clickedItemPositions.valueAt(index);
                     if (checked) {
@@ -141,14 +113,9 @@ public class DetailFoodActivity extends AppCompatActivity {
                         mTextView.setText(mTextView.getText() + item + ",");
                         valueItemCheck = mTextView.getText().toString();
                     }
-                    if(index == clickedItemPositions.size()){
-                        btnCheckAll.setText("Bỏ tất cả");
-                        isCheckAll =false;
-                    }
-
                 }
                 itemCheckList = valueItemCheck.split(",");
-                Log.d("av", "onCreate: " + itemCheckList.length);
+                Log.d("ab", "onItemClick: " + itemCheckList.length);
             }
         });
     }
@@ -206,21 +173,14 @@ public class DetailFoodActivity extends AppCompatActivity {
             snackbar.show();
             return true;
         }
-        if (id == R.id.action_cooknow) {
-            Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bắt đầu nấu ăn thôi ^^", Snackbar.LENGTH_SHORT);
-            snackbar.setActionTextColor(Color.YELLOW);
-            snackbar.show();
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
 
     private void MenuCookToday() {
-        Intent intent = new Intent(this,CookToday.class);
+        Intent intent = new Intent(this, CookToday.class);
         startActivity(intent);
     }
-
 
     static class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -251,31 +211,19 @@ public class DetailFoodActivity extends AppCompatActivity {
         }
     }
 
-    public void setupUI(){
+    public void setupUI() {
         imageToolbar = (ImageView) findViewById(R.id.header);
         titleToolbar = (TextView) findViewById(R.id.toolbar_title);
+        nameTypeFood = (TextView) findViewById(R.id.txt_name_type_food);
     }
-    public void loadData() {
-//        monChinhModel = (MonChinhModel) getIntent().getExtras().getSerializable("singleItemModel");
-//        String image1[] = monChinhModel.getAvatarFood().split(",");
-//        byte[] decodebyte1 = Base64.decode(image1[1], Base64.DEFAULT);
-//        Bitmap bitmap1 = BitmapFactory.decodeByteArray(decodebyte1, 0, decodebyte1.length);
-//        imageToolbar.setImageBitmap(bitmap1);
-//        titleToolbar.setText(monChinhModel.getTitleFood());
-//
-//        monSangModel = (MonSangModel) getIntent().getExtras().getSerializable("singleItemModel");
-//        String image[] = monSangModel.getAvatarFood().split(",");
-//        byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
-//        imageToolbar.setImageBitmap(bitmap);
-//        titleToolbar.setText(monSangModel.getTitleFood());'
 
+    public void loadData() {
         foodModel = (FoodModel) getIntent().getExtras().getSerializable("singleItemModel");
         String image[] = foodModel.getAvatarFood().split(",");
         byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
         imageToolbar.setImageBitmap(bitmap);
         titleToolbar.setText(foodModel.getTitleFood());
-
+        nameTypeFood.setText(foodModel.getTypeFood());
     }
 }

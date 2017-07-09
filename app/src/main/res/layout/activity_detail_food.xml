@@ -22,15 +22,14 @@
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap"
             app:expandedTitleGravity="center|left"
             >
-            <ImageView
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ga"
-                app:layout_collapseMode="pin" />
+                <ImageView
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/ga"
+                    app:layout_collapseMode="pin" />
             <android.support.v7.widget.Toolbar
-                android:alpha="100"
                 android:id="@+id/toolbar_detail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"

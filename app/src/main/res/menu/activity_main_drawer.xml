@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_24"
+            android:title="Trang chủ" />
+        <item
+            android:id="@+id/nav_fav"
+            android:icon="@drawable/heart"
+            android:title="Món ăn yêu thích" />
+        <item
+            android:id="@+id/nav_list_food"
+            android:icon="@drawable/ic_list_24"
+            android:title="Thực đơn hôm nay" />
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/cart_24dp"
+            android:title="Đi chợ mua gì?" />
+    </group>
+
+    <item android:title="Trang chủ">
+        <menu>
+            <item
+                android:id="@+id/nav_mon_sang"
+                android:icon="@drawable/ic_local_cafe_black_24dp"
+                android:title="Món ăn sáng" />
+            <item
+                android:id="@+id/nav_mon_khai_vi"
+                android:icon="@drawable/ic_local_pizza_black_24dp"
+                android:title="Món khai vị" />
+            <item
+                android:id="@+id/nav_mon_chinh"
+                android:icon="@drawable/ic_restaurant_menu_black_24dp"
+                android:title="Món chính" />
+            <item
+                android:id="@+id/nav_mon_trang_mieng"
+                android:icon="@drawable/ic_cake_black_24dp"
+                android:title="Món tráng miệng" />
+        </menu>
+    </item>
+
+</menu>

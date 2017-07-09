@@ -13,27 +13,14 @@ import android.widget.TextView;
 
 import com.example.rufflez.Cookbook.MoreActivity;
 import com.example.rufflez.Cookbook.adapter.FoodAdapter;
-import com.example.rufflez.Cookbook.adapter.MonChinhAdapter;
-import com.example.rufflez.Cookbook.adapter.MonKhaiViAdapter;
-import com.example.rufflez.Cookbook.adapter.MonTrangMiengAdapter;
 import com.example.rufflez.Cookbook.databases.DatabaseHandle;
-import com.example.rufflez.Cookbook.model.MonChinhModel;
-import com.example.rufflez.Cookbook.model.MonKhaiViModel;
-import com.example.rufflez.Cookbook.model.MonSangModel;
-import com.example.rufflez.Cookbook.model.MonTrangMiengModel;
+import com.example.rufflez.Cookbook.utils.Utils;
 import com.example.rufflez.myapplication.R;
-
-import java.util.ArrayList;
 
 /**
  * Created by rufflez on 6/20/15.
  */
 public class HomeFragment extends Fragment {
-    ArrayList<MonSangModel> singleItemAnSang = new ArrayList<MonSangModel>();
-    ArrayList<MonChinhModel> singleItemKhaiVi = new ArrayList<>();
-    ArrayList<MonKhaiViModel> singleItemMonChinh = new ArrayList<>();
-    ArrayList<MonTrangMiengModel> singleItemTrangMieng = new ArrayList<>();
-
     TextView btnMoreAnSang, btnMoreKhaiVi, btnMoreTrangMieng, btnMoreMonChinh;
 
     RecyclerView mRecycleView_an_sang, mRecycleView_khai_vi, mRecycleView_mon_chinh, mRecycleView_trang_mieng;
@@ -112,16 +99,15 @@ public class HomeFragment extends Fragment {
         mRecycleView_trang_mieng.hasFixedSize();
         mRecycleView_khai_vi.hasFixedSize();
 
-        FoodAdapter foodAdapter = new FoodAdapter(getContext(),DatabaseHandle.getHandle(getContext()).getListFood());
-        mRecycleView_an_sang.setAdapter(foodAdapter);
-//        MonSangAdapter monSangAdapter = new MonSangAdapter(getContext(), DatabaseHandle.getHandle(getContext()).getListFoodMonSang());
-//        mRecycleView_an_sang.setAdapter(monSangAdapter);
-        MonKhaiViAdapter monKhaiViAdapter = new MonKhaiViAdapter(getContext(), DatabaseHandle.getHandle(getContext()).getListFoodMonKhaiVi());
-        mRecycleView_khai_vi.setAdapter(monKhaiViAdapter);
-        MonChinhAdapter monChinhAdapter = new MonChinhAdapter(getContext(), DatabaseHandle.getHandle(getContext()).getListFoodMonChinh());
-        mRecycleView_mon_chinh.setAdapter(monChinhAdapter);
-        MonTrangMiengAdapter monTrangMiengAdapter = new MonTrangMiengAdapter(getContext(), DatabaseHandle.getHandle(getContext()).getListFoodMonTrangMieng());
-        mRecycleView_trang_mieng.setAdapter(monTrangMiengAdapter);
+        FoodAdapter monSangAdapter  = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món sáng"));
+        mRecycleView_an_sang.setAdapter(monSangAdapter);
+        FoodAdapter monSangAdapter2  = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món khai vị"));
+        mRecycleView_khai_vi.setAdapter(monSangAdapter2);
+        FoodAdapter monSangAdapter3  = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món chính"));
+        mRecycleView_mon_chinh.setAdapter(monSangAdapter3);
+        FoodAdapter monSangAdapter4 = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món tráng miệng"));
+        mRecycleView_trang_mieng.setAdapter(monSangAdapter4);
+
     }
 }
 

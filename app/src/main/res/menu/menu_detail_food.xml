@@ -6,9 +6,4 @@
         app:showAsAction="collapseActionView|always"
         android:layout_width="wrap_content"
         android:title="Bookmark" />
-    <item android:id="@+id/action_cooknow"
-        android:icon="@drawable/silverware"
-        app:showAsAction="collapseActionView|always"
-        android:layout_width="wrap_content"
-        android:title="Bookmark" />
 </menu>
