@@ -9,7 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.example.rufflez.Cookbook.MoreActivity;
 import com.example.rufflez.Cookbook.adapter.FoodAdapter;
@@ -22,6 +24,7 @@ import com.example.rufflez.myapplication.R;
  */
 public class HomeFragment extends Fragment {
     TextView btnMoreAnSang, btnMoreKhaiVi, btnMoreTrangMieng, btnMoreMonChinh;
+    ViewFlipper viewFlipper;
 
     RecyclerView mRecycleView_an_sang, mRecycleView_khai_vi, mRecycleView_mon_chinh, mRecycleView_trang_mieng;
 
@@ -69,7 +72,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        viewFlipper = rootView.findViewById(R.id.view_flipper);
+        viewFlipper.setFlipInterval(10000);
+        int[] resources = {
+                R.drawable.bg1,
+                R.drawable.bg,
+                R.drawable.bg2,
+                R.drawable.bg3
 
+        };
+
+        for (int i = 0; i < resources.length; i++) {
+            ImageView imageView = new ImageView(getActivity());
+            imageView.setImageResource(resources[i]);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            viewFlipper.addView(imageView,i);
+        }
+        viewFlipper.startFlipping();
         return rootView;
     }
 
