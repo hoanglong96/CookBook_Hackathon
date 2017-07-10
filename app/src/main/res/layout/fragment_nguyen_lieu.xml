@@ -4,7 +4,6 @@
     tools:showIn="@layout/activity_detail_food"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="16dp"
     android:nestedScrollingEnabled="true"
     android:descendantFocusability="blocksDescendants"
     android:background="#f7f9f4"
@@ -20,7 +19,7 @@
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:choiceMode="multipleChoice"
         android:layout_below="@id/tv"
         >

@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.example.rufflez.Cookbook.DetailFoodActivity;
+import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
 import com.example.rufflez.Cookbook.adapter.FavFoodAdapter;
 import com.example.rufflez.myapplication.R;
 

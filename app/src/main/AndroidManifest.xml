@@ -22,11 +22,11 @@
         android:label="@string/app_name"
         android:theme="@style/MyMaterialTheme">
         <activity
-            android:name="com.example.rufflez.Cookbook.MainActivity"
+            android:name="com.example.rufflez.Cookbook.activity.MainActivity"
             android:label="Hôm nay bạn nấu gì?"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.example.rufflez.Cookbook.SplashScreen"
+            android:name="com.example.rufflez.Cookbook.activity.SplashScreen"
             android:theme="@style/MyMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,16 +35,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.rufflez.Cookbook.DetailFoodActivity"
+            android:name="com.example.rufflez.Cookbook.activity.DetailFoodActivity"
             android:label=""
             android:theme="@style/MyMaterialTheme" />
-        <activity android:name="com.example.rufflez.Cookbook.MoreActivity" />
+        <activity android:name="com.example.rufflez.Cookbook.activity.MoreActivity" />
         <activity
-            android:name="com.example.rufflez.Cookbook.CookToday"
+            android:name="com.example.rufflez.Cookbook.activity.CookToday"
             android:label="Thực đơn hôm nay"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name="com.example.rufflez.Cookbook.AboutActivity"
+            android:name="com.example.rufflez.Cookbook.activity.AboutActivity"
             android:label="About"
             android:theme="@style/MyMaterialTheme" />
     </application>

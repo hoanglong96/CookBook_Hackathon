@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.DetailFoodActivity;
+import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
 import com.example.rufflez.Cookbook.databases.FoodModel;
 import com.example.rufflez.myapplication.R;
 

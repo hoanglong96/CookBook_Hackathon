@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.DetailFoodActivity;
+import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
 import com.example.rufflez.myapplication.R;
 
 import java.util.Arrays;

@@ -1,5 +1,6 @@
 package com.example.rufflez.Cookbook.databases;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -36,6 +37,7 @@ public class DatabaseHandle {
                 null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
+            int id = cursor.getInt(0);
             String typyFood = cursor.getString(1);
             String avatarFood = cursor.getString(2);
             String titleFood = cursor.getString(3);
@@ -48,23 +50,25 @@ public class DatabaseHandle {
             String displayHome = cursor.getString(11);
             boolean bookmark = cursor.getInt(6) !=0 ;
 
-            FoodModel foodModel = new FoodModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood, khauPhan, calo, soNguyenLieu, thoiGianNau, displayHome, bookmark);
+            FoodModel foodModel = new FoodModel(id, typyFood, avatarFood, titleFood, ingredientFood, methodFood, khauPhan, calo, soNguyenLieu, thoiGianNau, displayHome, bookmark);
             foodModelList.add(foodModel);
             cursor.moveToNext();
         }
         return foodModelList;
     }
 
-//    public void setBookmark(boolean isBookmark,FoodModel storyModel){
-//        foodDataBase = myDataBase.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        if(isBookmark){
-//            contentValues.put("bookmark",1);
-//        }else{
-//            contentValues.put("bookmark",0);
-//        }
-//        foodDataBase.update("tbl_short_story",contentValues,"id = " + storyModel,null);
-//    }
+    public void setBookmark(boolean isBookmark,FoodModel foodModel){
+        foodDataBase = myDataBase.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        if(isBookmark){
+            contentValues.put("book_mark",1);
+        }else{
+            contentValues.put("book_mark",0);
+        }
+        foodDataBase.update("mainfoods",contentValues,"id = " + foodModel.getId()+1,null);
+    }
+
+
     private  static DatabaseHandle instance;
         public static DatabaseHandle getInstance(Context context) {
             if (instance ==  null) {

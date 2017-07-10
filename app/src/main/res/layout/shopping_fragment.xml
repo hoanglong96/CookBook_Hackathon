@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context="com.example.rufflez.Cookbook.MainActivity"
+    tools:context="com.example.rufflez.Cookbook.activity.MainActivity"
     android:background="#f7f9f4">
 <RelativeLayout
     android:layout_width="match_parent"

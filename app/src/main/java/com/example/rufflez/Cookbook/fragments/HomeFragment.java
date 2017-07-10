@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.example.rufflez.Cookbook.MoreActivity;
+import com.example.rufflez.Cookbook.activity.MoreActivity;
 import com.example.rufflez.Cookbook.adapter.FoodAdapter;
 import com.example.rufflez.Cookbook.databases.DatabaseHandle;
-import com.example.rufflez.Cookbook.utils.Utils;
+import com.example.rufflez.Cookbook.utils.UtilsFilter;
 import com.example.rufflez.myapplication.R;
 
 /**
@@ -130,14 +130,14 @@ public class HomeFragment extends Fragment {
         mRecycleView_trang_mieng.hasFixedSize();
         mRecycleView_khai_vi.hasFixedSize();
 
-        FoodAdapter monSangAdapter  = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món sáng"));
+        FoodAdapter monSangAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món sáng", "enable"));
         mRecycleView_an_sang.setAdapter(monSangAdapter);
-        FoodAdapter monSangAdapter2  = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món khai vị"));
-        mRecycleView_khai_vi.setAdapter(monSangAdapter2);
-        FoodAdapter monSangAdapter3  = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món chính"));
-        mRecycleView_mon_chinh.setAdapter(monSangAdapter3);
-        FoodAdapter monSangAdapter4 = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món tráng miệng"));
-        mRecycleView_trang_mieng.setAdapter(monSangAdapter4);
+        FoodAdapter monkhaiviAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món khai vị", "enable"));
+        mRecycleView_khai_vi.setAdapter(monkhaiviAdapter);
+        FoodAdapter monChinhAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món chính", "enable"));
+        mRecycleView_mon_chinh.setAdapter(monChinhAdapter);
+        FoodAdapter monTrangMiengAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món tráng miệng", "enable"));
+        mRecycleView_trang_mieng.setAdapter(monTrangMiengAdapter);
 
     }
 

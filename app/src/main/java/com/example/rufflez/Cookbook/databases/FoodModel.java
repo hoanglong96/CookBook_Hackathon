@@ -3,6 +3,7 @@ package com.example.rufflez.Cookbook.databases;
 import java.io.Serializable;
 
 public class FoodModel implements Serializable {
+    private int id;
     private String typeFood;
     private String avatarFood;
     private String titleFood;
@@ -15,7 +16,8 @@ public class FoodModel implements Serializable {
     private String displayHome;
     private boolean bookmark;
 
-    public FoodModel(String typeFood, String avatarFood, String titleFood, String ingredientFood, String methodFood, String khauPhan, String calo, String soNguyenLieu, String thoiGianNau, String displayHome, boolean bookmark) {
+    public FoodModel(int id, String typeFood, String avatarFood, String titleFood, String ingredientFood, String methodFood, String khauPhan, String calo, String soNguyenLieu, String thoiGianNau, String displayHome, boolean bookmark) {
+        id = id;
         this.typeFood = typeFood;
         this.avatarFood = avatarFood;
         this.titleFood = titleFood;
@@ -27,7 +29,14 @@ public class FoodModel implements Serializable {
         this.thoiGianNau = thoiGianNau;
         this.displayHome = displayHome;
         this.bookmark = bookmark;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTypeFood() {
@@ -116,22 +125,5 @@ public class FoodModel implements Serializable {
 
     public void setBookmark(boolean bookmark) {
         this.bookmark = bookmark;
-    }
-
-    @Override
-    public String toString() {
-        return "FoodModel{" +
-                "typeFood='" + typeFood + '\'' +
-                ", avatarFood='" + avatarFood + '\'' +
-                ", titleFood='" + titleFood + '\'' +
-                ", ingredientFood='" + ingredientFood + '\'' +
-                ", methodFood='" + methodFood + '\'' +
-                ", khauPhan='" + khauPhan + '\'' +
-                ", calo='" + calo + '\'' +
-                ", soNguyenLieu='" + soNguyenLieu + '\'' +
-                ", thoiGianNau='" + thoiGianNau + '\'' +
-                ", displayHome='" + displayHome + '\'' +
-                ", bookmark=" + bookmark +
-                '}';
     }
 }
