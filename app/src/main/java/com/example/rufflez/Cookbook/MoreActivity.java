@@ -18,9 +18,6 @@ import android.widget.GridView;
 
 import com.example.rufflez.Cookbook.adapter.MoreFoodGridAdapter;
 import com.example.rufflez.Cookbook.databases.DatabaseHandle;
-import com.example.rufflez.Cookbook.fragments.FavoritesFragment;
-import com.example.rufflez.Cookbook.fragments.HomeFragment;
-import com.example.rufflez.Cookbook.fragments.ShoppingListFragment;
 import com.example.rufflez.Cookbook.utils.Utils;
 import com.example.rufflez.myapplication.R;
 
@@ -43,7 +40,7 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        ////adapter gridview
+        //adapter gridview
 
         grid = (GridView) findViewById(R.id.grid_view);
         bundle = getIntent().getExtras();
@@ -81,8 +78,6 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_more);
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 
     @Override
@@ -90,6 +85,8 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_more);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else {
+            onBackPressed();
         }
     }
 
@@ -112,22 +109,9 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.nav_home) {
-            HomeFragment homeFragment = new HomeFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, homeFragment).commit();
-            toolbar.setTitle("Hôm nay bạn nấu gì?");
-
-        } else if (id == R.id.nav_fav) {
-            FavoritesFragment favoritesFragment = new FavoritesFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, favoritesFragment).commit();
-            toolbar.setTitle("Món ăn yêu thích");
-        } else if (id == R.id.nav_list_food) {
-
-        } else if (id == R.id.nav_shop) {
-            ShoppingListFragment shoppingListFragment = new ShoppingListFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, shoppingListFragment).commit();
-            toolbar.setTitle("Đi chợ mua gì?");
+            Intent home = new Intent(getBaseContext(), MainActivity.class);
+            startActivity(home);
         } else if (id == R.id.nav_mon_sang) {
             Intent intent = new Intent(getBaseContext(), MoreActivity.class);
             Bundle bundle = new Bundle();

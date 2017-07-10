@@ -47,10 +47,6 @@
             android:name="com.example.rufflez.Cookbook.AboutActivity"
             android:label="About"
             android:theme="@style/MyMaterialTheme" />
-        <activity
-            android:name="com.example.rufflez.Cookbook.SearchActivity"
-            android:label="@string/title_activity_search"
-            android:theme="@style/MyMaterialTheme"></activity>
     </application>
 
 </manifest>

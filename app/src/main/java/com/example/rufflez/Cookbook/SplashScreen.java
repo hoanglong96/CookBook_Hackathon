@@ -1,7 +1,6 @@
 package com.example.rufflez.Cookbook;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
@@ -23,10 +22,6 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_sreen);
-        progressBar=(ProgressBar)findViewById(R.id.progressBar);
-        progressBar.setProgress(0);
-        textView=(TextView)findViewById(R.id.textView);
-        textView.setText("");
 
         final long period = 100;
         timer=new Timer();
@@ -35,15 +30,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 //this repeats every 100 ms
                 if (i<100){
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            textView.setText(String.valueOf(i)+"%");
-                            textView.setTextColor(Color.CYAN);
-                        }
-                    });
-                    progressBar.setProgress(i);
-                    i += 5;
+                    i += 50;
                 }else{
                     //closing the timer
                     timer.cancel();

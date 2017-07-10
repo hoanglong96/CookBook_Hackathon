@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group
-        android:checkableBehavior="single"
-        >
-
-        <item
-            android:id="@+id/drawer_homes"
-            android:icon="@drawable/home_variant"
-            android:title="@string/Home"/>
-
-        <item
-            android:id="@+id/drawer_fav"
-            android:title="@string/Favourites"/>
-
-        <item
-            android:id="@+id/drawer_shop"
-            android:title="@string/Shopping"/>
-
-    </group>
-
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_24"
+        android:title="Trang chủ" />
+    <item android:title="Trang chủ">
+        <menu>
+            <item
+                android:id="@+id/nav_mon_sang"
+                android:icon="@drawable/ic_local_cafe_black_24dp"
+                android:title="Món ăn sáng" />
+            <item
+                android:id="@+id/nav_mon_khai_vi"
+                android:icon="@drawable/ic_local_pizza_black_24dp"
+                android:title="Món khai vị" />
+            <item
+                android:id="@+id/nav_mon_chinh"
+                android:icon="@drawable/ic_restaurant_menu_black_24dp"
+                android:title="Món chính" />
+            <item
+                android:id="@+id/nav_mon_trang_mieng"
+                android:icon="@drawable/ic_cake_black_24dp"
+                android:title="Món tráng miệng" />
+        </menu>
+    </item>
 </menu>
