@@ -9,7 +9,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  */
 
 public class MyDatabase extends SQLiteAssetHelper {
-    private static final String DATABASE_NAME = "acook_database.db";
+    private static final String DATABASE_NAME = "acook_database_new.db";
     private static final int DATABASE_VERSION = 1;
 
     public MyDatabase(Context context) {

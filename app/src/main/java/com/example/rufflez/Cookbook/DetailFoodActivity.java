@@ -41,6 +41,12 @@ public class DetailFoodActivity extends AppCompatActivity {
     private ImageView imageToolbar;
     private TextView titleToolbar,nameTypeFood;
     Toolbar toolbar;
+    private TextView tv_content_cach_nau;
+    private TextView tv_khauphan;
+    private TextView tv_calo;
+    private TextView tv_soNguyenLieu;
+    private TextView tv_thoigian;
+    private TextView tv_typeFood;
     //CardView
     private ListView mListView;
     private TextView mTextView;
@@ -91,11 +97,13 @@ public class DetailFoodActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.lv);
         mTextView = (TextView) findViewById(R.id.tv);
 
+        //NGuyen lieu
+        String i[] = foodModel.getIngredientFood().split("-");
         ArrayAdapter<String> adapter = new ArrayAdapter(
                 this,
-                android.R.layout.simple_list_item_multiple_choice,
-                trees
+                android.R.layout.simple_list_item_multiple_choice, i
         );
+
         clickedItemPositions = mListView.getCheckedItemPositions();
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -214,7 +222,12 @@ public class DetailFoodActivity extends AppCompatActivity {
     public void setupUI() {
         imageToolbar = (ImageView) findViewById(R.id.header);
         titleToolbar = (TextView) findViewById(R.id.toolbar_title);
-        nameTypeFood = (TextView) findViewById(R.id.txt_name_type_food);
+        tv_content_cach_nau = (TextView) findViewById(R.id.content_cach_nau);
+        tv_khauphan = (TextView) findViewById(R.id.khau_phan);
+        tv_calo = (TextView)findViewById(R.id.calo);
+        tv_soNguyenLieu = (TextView) findViewById(R.id.so_nguyen_lieu);
+        tv_thoigian = (TextView) findViewById(R.id.thoi_gian_nau);
+        tv_typeFood =  (TextView) findViewById(R.id.type_food);
     }
 
     public void loadData() {
@@ -223,7 +236,13 @@ public class DetailFoodActivity extends AppCompatActivity {
         byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
         imageToolbar.setImageBitmap(bitmap);
+        tv_content_cach_nau.setText(foodModel.getMethodFood());
+        tv_khauphan.setText(foodModel.getKhauPhan());
+        tv_calo.setText(foodModel.getCalo());
+        tv_soNguyenLieu.setText(foodModel.getSoNguyenLieu());
+        tv_thoigian.setText(foodModel.getThoiGianNau());
         titleToolbar.setText(foodModel.getTitleFood());
-        nameTypeFood.setText(foodModel.getTypeFood());
+        tv_typeFood.setText(foodModel.getTypeFood());
+        toolbar.setTitle(foodModel.getTitleFood());
     }
 }

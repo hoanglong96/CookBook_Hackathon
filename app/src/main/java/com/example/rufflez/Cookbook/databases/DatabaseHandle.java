@@ -41,9 +41,14 @@ public class DatabaseHandle {
             String titleFood = cursor.getString(3);
             String ingredientFood = cursor.getString(4);
             String methodFood = cursor.getString(5);
-            //Boolean bookmark = cursor.getInt(6) !=0 ;
+            String khauPhan = cursor.getString(7);
+            String calo = cursor.getString(8);
+            String soNguyenLieu = cursor.getString(9);
+            String thoiGianNau = cursor.getString(10);
+            String displayHome = cursor.getString(11);
+            boolean bookmark = cursor.getInt(6) !=0 ;
 
-            FoodModel foodModel = new FoodModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood);
+            FoodModel foodModel = new FoodModel( typyFood, avatarFood, titleFood, ingredientFood, methodFood, khauPhan, calo, soNguyenLieu, thoiGianNau, displayHome, bookmark);
             foodModelList.add(foodModel);
             cursor.moveToNext();
         }
@@ -60,6 +65,12 @@ public class DatabaseHandle {
 //        }
 //        foodDataBase.update("tbl_short_story",contentValues,"id = " + storyModel,null);
 //    }
-
+    private  static DatabaseHandle instance;
+        public static DatabaseHandle getInstance(Context context) {
+            if (instance ==  null) {
+                instance = new DatabaseHandle(context);
+            }
+            return instance;
+        }
 }
 

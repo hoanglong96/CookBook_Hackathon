@@ -51,6 +51,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
         holder.foodimage.setImageBitmap(bitmap);
+        holder.time.setText(singleItemModel.getThoiGianNau() + "p");
         holder.foodtile.setText(singleItemModel.getTitleFood());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +71,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView foodtile;
+        TextView foodtile,time;
         ImageView foodimage;
         CardView cardView;
         public ViewHolder(View itemView) {
@@ -78,7 +79,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             foodimage = (ImageView) itemView.findViewById(R.id.itemImage);
             foodtile =  (TextView) itemView.findViewById(tvTitle);
             cardView = itemView.findViewById(R.id.card_view);
-
+            time = (TextView) itemView.findViewById(R.id.item_time);
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
@@ -86,6 +87,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 //                    context.startActivity(intent);
 //                }
 //            });
+
+
         }
     }
 }

@@ -25,7 +25,7 @@ import com.example.rufflez.myapplication.R;
 public class HomeFragment extends Fragment {
     TextView btnMoreAnSang, btnMoreKhaiVi, btnMoreTrangMieng, btnMoreMonChinh;
     ViewFlipper viewFlipper;
-
+    private String isMonSang = "Món sáng", isMonKhaiVi = "Món khai vị" , isMonChinh = "Món chính" , isMonTrangMieng = "Món tráng miệng";
     RecyclerView mRecycleView_an_sang, mRecycleView_khai_vi, mRecycleView_mon_chinh, mRecycleView_trang_mieng;
 
     @Override
@@ -45,6 +45,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MoreActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("isMonSang" , isMonSang);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -52,6 +55,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MoreActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("isMonSang" , isMonKhaiVi);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -60,6 +66,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MoreActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("isMonSang" , isMonChinh);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -68,6 +77,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), MoreActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("isMonSang" , isMonTrangMieng);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -126,6 +138,13 @@ public class HomeFragment extends Fragment {
         mRecycleView_mon_chinh.setAdapter(monSangAdapter3);
         FoodAdapter monSangAdapter4 = new FoodAdapter(getContext(), Utils.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món tráng miệng"));
         mRecycleView_trang_mieng.setAdapter(monSangAdapter4);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        createAdapter();
 
     }
 }
