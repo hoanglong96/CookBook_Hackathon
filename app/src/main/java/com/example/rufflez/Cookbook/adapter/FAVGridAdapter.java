@@ -14,7 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
+import com.example.rufflez.Cookbook.DetailFoodActivity;
 import com.example.rufflez.Cookbook.databases.FoodModel;
 import com.example.rufflez.myapplication.R;
 
@@ -27,7 +27,7 @@ import java.util.List;
 public class FAVGridAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<FoodModel> foodModelList;
+    private List<FoodModel>foodModelList;
     private String typeFood;
     private CardView cardView;
 
@@ -40,7 +40,7 @@ public class FAVGridAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return foodModelList.size();
+        return  foodModelList.size();
     }
 
     @Override
@@ -66,17 +66,17 @@ public class FAVGridAdapter extends BaseAdapter {
         if (convertView == null) {
 
             grid = new View(mContext);
-            grid = inflater.inflate(R.layout.item_list_fav, null);
-            TextView textView = (TextView) grid.findViewById(R.id.tv_name_fav_food);
-            ImageView imageView = (ImageView) grid.findViewById(R.id.img_fav_food);
-            TextView tvTime = (TextView) grid.findViewById(R.id.time_fav_food);
+            grid = inflater.inflate(R.layout.more_item_in_type_food_grid_item, null);
+            TextView textView = (TextView) grid.findViewById(R.id.tv_name_food);
+            ImageView imageView = (ImageView)grid.findViewById(R.id.img_more_food);
+            TextView tvTime = (TextView) grid.findViewById(R.id.item_time);
             tvTime.setText(foodModel.getThoiGianNau());
             textView.setText(foodModel.getTitleFood());
-            String image[] = foodModel.getAvatarFood().split(",");
+            String image[] =  foodModel.getAvatarFood().split(",");
             byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
             imageView.setImageBitmap(bitmap);
-            cardView = grid.findViewById(R.id.cv_fav_item);
+            cardView =  grid.findViewById(R.id.cv_more_food);
             final FoodModel singleItemModel = foodModelList.get(position);
 
             cardView.setOnClickListener(new View.OnClickListener() {

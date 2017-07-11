@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
+import com.example.rufflez.Cookbook.DetailFoodActivity;
 import com.example.rufflez.myapplication.R;
 
 import java.util.Arrays;
@@ -32,7 +32,7 @@ public class ShoppingListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.shopping_fragment, container, false);
-        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycle_view);
+        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycle_view_nguyen_lieu);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(),
                 Arrays.<String>asList(String.valueOf(DetailFoodActivity.trees))));

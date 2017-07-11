@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
+import com.example.rufflez.Cookbook.DetailFoodActivity;
 import com.example.rufflez.Cookbook.databases.FoodModel;
 import com.example.rufflez.myapplication.R;
 
@@ -47,7 +47,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         final FoodModel singleItemModel = singleItemModelList.get(position);
 
-        String image[] = singleItemModel.getAvatarFood().split(",");
+        String image[] =  singleItemModel.getAvatarFood().split(",");
         byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
         holder.foodimage.setImageBitmap(bitmap);
@@ -57,6 +57,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailFoodActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("singleItemModel", singleItemModel);
                 intent.putExtras(bundle);
@@ -70,17 +71,24 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         return singleItemModelList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView foodtile, time;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView foodtile,time;
         ImageView foodimage;
         CardView cardView;
-
         public ViewHolder(View itemView) {
             super(itemView);
             foodimage = (ImageView) itemView.findViewById(R.id.itemImage);
-            foodtile = (TextView) itemView.findViewById(tvTitle);
+            foodtile =  (TextView) itemView.findViewById(tvTitle);
             cardView = itemView.findViewById(R.id.card_view);
             time = (TextView) itemView.findViewById(R.id.item_time);
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(context,DetailFoodActivity.class);
+//                    context.startActivity(intent);
+//                }
+//            });
+
 
         }
     }

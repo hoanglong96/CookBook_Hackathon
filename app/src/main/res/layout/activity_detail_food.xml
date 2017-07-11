@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <!--<include layout="@layout/content_detail_food" />-->
+    <include layout="@layout/content_detail_food"/>
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar_detail_food"
         android:layout_width="match_parent"
@@ -14,13 +17,13 @@
         app:elevation="10dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            app:titleEnabled="false"
             android:id="@+id/collapsing_toolbar_detail_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap">
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap"
+            app:titleEnabled="false">
 
             <ImageView
                 android:id="@+id/header"
@@ -40,12 +43,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/MyMaterialTheme.PopupOverlay"></android.support.v7.widget.Toolbar>
+                app:popupTheme="@style/MyMaterialTheme.PopupOverlay">
+
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-    <!--<include layout="@layout/content_detail_food" />-->
-    <include layout="@layout/content_detail_food" />
-
-
 </android.support.design.widget.CoordinatorLayout>

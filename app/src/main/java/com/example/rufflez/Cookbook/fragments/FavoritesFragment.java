@@ -26,7 +26,7 @@ public class FavoritesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        FAVGridAdapter gridAdapter =  new FAVGridAdapter(getContext(), UtilsFav.loclist(DatabaseHandle.getInstance(getContext()).getListFood(),true));
+        FAVGridAdapter gridAdapter =  new FAVGridAdapter(getContext(), UtilsFav.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), true));
         grid.setAdapter(gridAdapter);
     }
 }

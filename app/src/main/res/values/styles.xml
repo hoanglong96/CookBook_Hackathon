@@ -24,6 +24,6 @@
     </style>
 
     <style name="ToolbarTheme" parent="AppTheme">
-        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:textColorSecondary">#dcdbdb</item>
     </style>
 </resources>

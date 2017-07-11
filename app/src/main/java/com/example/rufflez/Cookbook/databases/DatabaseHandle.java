@@ -19,12 +19,21 @@ public class DatabaseHandle {
         myDataBase = new MyDatabase(context);
     }
 
+    private static DatabaseHandle handle;
+
+    public static DatabaseHandle getHandle(Context context) {
+        if (handle == null) {
+            handle = new DatabaseHandle(context);
+        }
+        return handle;
+    }
+
     private SQLiteDatabase foodDataBase;
 
     public List<FoodModel> getListFood() {
         foodDataBase = myDataBase.getReadableDatabase();
         List<FoodModel> foodModelList = new ArrayList<>();
-        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods" ,
+        Cursor cursor = foodDataBase.rawQuery("SELECT * FROM mainfoods",
                 null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -39,9 +48,10 @@ public class DatabaseHandle {
             String soNguyenLieu = cursor.getString(9);
             String thoiGianNau = cursor.getString(10);
             String displayHome = cursor.getString(11);
-            boolean bookmark = cursor.getInt(6) !=0 ;
+            boolean bookmark = cursor.getInt(6) != 0;
+            String nguyenLieuDaChon = cursor.getString(12);
 
-            FoodModel foodModel = new FoodModel(id, typyFood, avatarFood, titleFood, ingredientFood, methodFood, khauPhan, calo, soNguyenLieu, thoiGianNau, displayHome, bookmark);
+            FoodModel foodModel = new FoodModel(id,typyFood, avatarFood, titleFood, ingredientFood, methodFood, khauPhan, calo, soNguyenLieu, thoiGianNau, displayHome, bookmark,nguyenLieuDaChon);
             foodModelList.add(foodModel);
             cursor.moveToNext();
         }
@@ -59,13 +69,11 @@ public class DatabaseHandle {
         foodDataBase.update("mainfoods", contentValues, "id = " + foodModel.getId(), null);
     }
 
-
-    private  static DatabaseHandle instance;
-        public static DatabaseHandle getInstance(Context context) {
-            if (instance ==  null) {
-                instance = new DatabaseHandle(context);
-            }
-            return instance;
-        }
+    public void setUpdateNguyenLieu(FoodModel foodModel){
+        foodDataBase = myDataBase.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nguyen_lieu_da_chon","co");
+        foodDataBase.update("mainfoods",contentValues,"id = " + foodModel.getId(),null);
+    }
 }
 

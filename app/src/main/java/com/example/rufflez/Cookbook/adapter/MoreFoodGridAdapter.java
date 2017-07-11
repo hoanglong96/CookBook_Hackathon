@@ -14,7 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rufflez.Cookbook.activity.DetailFoodActivity;
+import com.example.rufflez.Cookbook.DetailFoodActivity;
 import com.example.rufflez.Cookbook.databases.FoodModel;
 import com.example.rufflez.myapplication.R;
 
@@ -25,7 +25,7 @@ import java.util.List;
  */
 
 public class MoreFoodGridAdapter extends BaseAdapter {
-    private String isMoreActivity = "true";
+
     private Context mContext;
     private List<FoodModel>foodModelList;
     private String typeFood;
@@ -70,7 +70,7 @@ public class MoreFoodGridAdapter extends BaseAdapter {
             TextView textView = (TextView) grid.findViewById(R.id.tv_name_food);
             ImageView imageView = (ImageView)grid.findViewById(R.id.img_more_food);
             TextView tvTime = (TextView) grid.findViewById(R.id.item_time);
-            tvTime.setText(foodModel.getThoiGianNau() + "p");
+            tvTime.setText(foodModel.getThoiGianNau());
             textView.setText(foodModel.getTitleFood());
             String image[] =  foodModel.getAvatarFood().split(",");
             byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
@@ -78,6 +78,7 @@ public class MoreFoodGridAdapter extends BaseAdapter {
             imageView.setImageBitmap(bitmap);
             cardView =  grid.findViewById(R.id.cv_more_food);
             final FoodModel singleItemModel = foodModelList.get(position);
+
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -85,7 +86,6 @@ public class MoreFoodGridAdapter extends BaseAdapter {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("singleItemModel", singleItemModel);
-                    bundle.putString("activity" , isMoreActivity);
                     intent.putExtras(bundle);
                     mContext.startActivity(intent);
                 }

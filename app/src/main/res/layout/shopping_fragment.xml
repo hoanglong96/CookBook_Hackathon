@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context="com.example.rufflez.Cookbook.activity.MainActivity"
+    tools:context="com.example.rufflez.Cookbook.MainActivity"
     android:background="#f7f9f4">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -35,10 +35,13 @@
         android:textAllCaps="false"
         />
 </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linerText"></android.support.v7.widget.RecyclerView>
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/recycle_shop"
+    android:layout_below="@+id/linerText">
+
+</android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
 

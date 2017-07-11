@@ -31,12 +31,12 @@
             android:text="Bạn cần"/>
     </LinearLayout>
     <!--<ListView-->
-        <!--android:id="@+id/lv"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:choiceMode="multipleChoice"-->
-        <!--android:layout_below="@id/tv"-->
-        <!--&gt;-->
+    <!--android:id="@+id/lv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:choiceMode="multipleChoice"-->
+    <!--android:layout_below="@id/tv"-->
+    <!--&gt;-->
     <!--</ListView>-->
     <android.support.v7.widget.RecyclerView
         android:paddingTop="8dp"

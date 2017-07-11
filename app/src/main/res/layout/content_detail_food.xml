@@ -212,7 +212,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardBackgroundColor="@color/white">
-                <include layout="@layout/fragment_nguyen_lieu"/>
+            <include layout="@layout/fragment_nguyen_lieu"/>
             <!--<include layout="@layout/fragment_nguyen_lieu"/>-->
         </android.support.v7.widget.CardView>
 

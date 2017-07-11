@@ -15,9 +15,10 @@ public class FoodModel implements Serializable {
     private String thoiGianNau;
     private String displayHome;
     private boolean bookmark;
+    private String nguyenLieuDaChon;
 
-    public FoodModel(int id, String typeFood, String avatarFood, String titleFood, String ingredientFood, String methodFood, String khauPhan, String calo, String soNguyenLieu, String thoiGianNau, String displayHome, boolean bookmark) {
-        id = id;
+    public FoodModel(int id, String typeFood, String avatarFood, String titleFood, String ingredientFood, String methodFood, String khauPhan, String calo, String soNguyenLieu, String thoiGianNau, String displayHome, boolean bookmark, String nguyenLieuDaChon) {
+        this.id = id;
         this.typeFood = typeFood;
         this.avatarFood = avatarFood;
         this.titleFood = titleFood;
@@ -29,14 +30,15 @@ public class FoodModel implements Serializable {
         this.thoiGianNau = thoiGianNau;
         this.displayHome = displayHome;
         this.bookmark = bookmark;
+        this.nguyenLieuDaChon = nguyenLieuDaChon;
     }
 
-    public int getId() {
-        return id;
+    public String getNguyenLieuDaChon() {
+        return nguyenLieuDaChon;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNguyenLieuDaChon(String nguyenLieuDaChon) {
+        this.nguyenLieuDaChon = nguyenLieuDaChon;
     }
 
     public String getTypeFood() {
@@ -125,5 +127,31 @@ public class FoodModel implements Serializable {
 
     public void setBookmark(boolean bookmark) {
         this.bookmark = bookmark;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodModel{" +
+                "id=" + id +
+                ", typeFood='" + typeFood + '\'' +
+                ", avatarFood='" + avatarFood + '\'' +
+                ", titleFood='" + titleFood + '\'' +
+                ", ingredientFood='" + ingredientFood + '\'' +
+                ", methodFood='" + methodFood + '\'' +
+                ", khauPhan='" + khauPhan + '\'' +
+                ", calo='" + calo + '\'' +
+                ", soNguyenLieu='" + soNguyenLieu + '\'' +
+                ", thoiGianNau='" + thoiGianNau + '\'' +
+                ", displayHome='" + displayHome + '\'' +
+                ", bookmark=" + bookmark +
+                '}';
     }
 }

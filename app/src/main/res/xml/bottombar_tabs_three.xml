@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tab>
+    <tab
+        textSize="6dp"
+        gravity="center"
+        id="@+id/tab_home"
+        icon="@drawable/ic_home_24"
+        activeColor="@color/colorPrimary"/>
+    <tab
+        textSize="6dp"
+        gravity="center"
+        id="@+id/tab_favorites"
+        icon="@drawable/ic_favorite_24"
+        activeColor="@color/colorPrimary"/>
+
+
+    <tab
+        textSize="6dp"
+        gravity="center"
+        id="@+id/tab_listfood"
+        icon="@drawable/ic_list_24"
+        activeColor="@color/colorPrimary"/>
+
+    <tab
+        textSize="6dp"
+        gravity="center"
+        id="@+id/tab_shop"
+        icon="@drawable/ic_shopping_24"
+        activeColor="@color/colorPrimary"/>
+
+
+
+</Tab>
+

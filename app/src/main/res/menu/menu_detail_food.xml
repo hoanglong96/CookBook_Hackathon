@@ -1,15 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-        <item android:id="@+id/action_bookmark"
-            android:icon="@drawable/heart_outline"
-            app:showAsAction="collapseActionView|always"
-            android:layout_width="wrap_content"
-            android:title="add" />
+    <item android:id="@+id/fav_detail"
+        android:icon="@drawable/heart_outline"
+        app:showAsAction="collapseActionView|always"
+        android:layout_width="wrap_content"
+        android:title="add" />
 
-        <item android:id="@+id/action_addcook"
-            android:icon="@drawable/ic_note_add"
-            app:showAsAction="collapseActionView|always"
-            android:layout_width="wrap_content"
-            android:title="add" />
+    <item android:id="@+id/add_cooktoday"
+        android:icon="@drawable/ic_note_add"
+        app:showAsAction="collapseActionView|always"
+        android:layout_width="wrap_content"
+        android:title="add" />
 </menu>

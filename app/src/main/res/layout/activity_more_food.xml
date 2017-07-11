@@ -22,7 +22,7 @@
             app:expandedTitleGravity="center|left"
             >
             <ImageView
-                android:id="@+id/header"
+                android:id="@+id/header_more"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"

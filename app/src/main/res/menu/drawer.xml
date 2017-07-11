@@ -4,7 +4,7 @@
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home_24"
         android:title="Trang chủ" />
-    <item android:title="Trang chủ">
+    <item android:title="Danh Mục">
         <menu>
             <item
                 android:id="@+id/nav_mon_sang"
