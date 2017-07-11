@@ -4,12 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static github.chenupt.multiplemodel.BaseModelManager.TAG;
 
 /**
  * Created by mac-vuongvu on 6/27/17.
@@ -51,16 +48,15 @@ public class DatabaseHandle {
         return foodModelList;
     }
 
-    public void setBookmark(boolean isBookmark,FoodModel foodModel){
+    public void setBookmark(boolean isBookmark, FoodModel foodModel) {
         foodDataBase = myDataBase.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        if(isBookmark){
-            contentValues.put("book_mark",1);
-        }else{
-            contentValues.put("book_mark",0);
+        if (isBookmark) {
+            contentValues.put("book_mark", 1);
+        } else {
+            contentValues.put("book_mark", 0);
         }
-        foodDataBase.update("mainfoods",contentValues,"id = " + foodModel.getId(),null);
-        Log.d(TAG, "setBookmark: da update");
+        foodDataBase.update("mainfoods", contentValues, "id = " + foodModel.getId(), null);
     }
 
 

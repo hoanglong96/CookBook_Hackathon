@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -190,15 +191,16 @@ public class DetailFoodActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_bookmark) {
-            Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm vào món yêu thích", Snackbar.LENGTH_SHORT)
-                    .setAction("Yêu thích", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            MenuCookToday();
-                        }
-                    });
-            snackbar.setActionTextColor(Color.YELLOW);
-            snackbar.show();
+            if (foodModel.isBookmark()) {
+                item.setIcon(R.drawable.heart_outline);
+                DatabaseHandle.getInstance(this).setBookmark(false, foodModel);
+                foodModel.setBookmark(false);
+            }else {
+                item.setIcon(R.drawable.heart);
+                DatabaseHandle.getInstance(this).setBookmark(true, foodModel);
+                foodModel.setBookmark(true);
+            }
+            Log.d("abc", "onOptionsItemSelected: " + foodModel.isBookmark());
             return true;
         }
         if (id == R.id.action_addcook) {
