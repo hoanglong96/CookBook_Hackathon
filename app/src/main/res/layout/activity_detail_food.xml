@@ -14,12 +14,12 @@
         app:elevation="10dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            app:titleEnabled="false"
             android:id="@+id/collapsing_toolbar_detail_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleGravity="center|left"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap">
 
             <ImageView
@@ -40,7 +40,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:popupTheme="@style/MyMaterialTheme.PopupOverlay"></android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>

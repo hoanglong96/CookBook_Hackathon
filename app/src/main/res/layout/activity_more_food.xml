@@ -38,7 +38,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/MyMaterialTheme.PopupOverlay"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:layout_collapseMode="pin"
                 >
             </android.support.v7.widget.Toolbar>
@@ -48,6 +47,7 @@
 
     <GridView
         android:layout_width="match_parent"
+        android:nestedScrollingEnabled="true"
         android:layout_height="match_parent"
         android:columnWidth="150dp"
         android:id="@+id/grid_view"

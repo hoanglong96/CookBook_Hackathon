@@ -4,7 +4,6 @@
     android:id="@+id/nestedScroolView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.rufflez.Cookbook.activity.DetailFoodActivity"
     tools:showIn="@layout/activity_detail_food">
