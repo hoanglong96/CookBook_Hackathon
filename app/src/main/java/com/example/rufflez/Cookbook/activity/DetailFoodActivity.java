@@ -97,6 +97,13 @@ public class DetailFoodActivity extends AppCompatActivity {
         btn_shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                android.app.FragmentManager fm = getFragmentManager();
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("data",foodModel);
+//                DialogFragment dialogFragment = new DialogFragment();
+//                dialogFragment.show(fm,"Simple fm");
+//                dialogFragment.setArguments(bundle);
+
             }
         });
     }
