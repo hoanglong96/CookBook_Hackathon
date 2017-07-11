@@ -44,16 +44,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlayout"></android.support.v7.widget.RecyclerView>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/rv"
-        android:id="@+id/btn_shop"
-        android:text="Thêm vào danh sách đi chợ"
-        android:textColor="@color/bb_inActiveBottomBarItemColor"
-        android:background="@color/md_blue_100"/>
 </RelativeLayout>

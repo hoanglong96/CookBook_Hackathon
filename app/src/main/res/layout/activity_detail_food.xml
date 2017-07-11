@@ -10,8 +10,8 @@
         android:id="@+id/appbar_detail_food"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        app:elevation="10dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="10dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_detail_food"
@@ -19,38 +19,34 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap"
             app:expandedTitleGravity="center|left"
-            >
-                <ImageView
-                    android:id="@+id/header"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/ga"
-                    app:layout_collapseMode="pin" />
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap">
+
+            <ImageView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/ga"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="pin" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/gradient" />
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_detail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/MyMaterialTheme.PopupOverlay"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:layout_collapseMode="pin"
-                >
-            </android.support.v7.widget.Toolbar>
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/MyMaterialTheme.PopupOverlay"></android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
     <!--<include layout="@layout/content_detail_food" />-->
-    <include layout="@layout/content_detail_food"/>
+    <include layout="@layout/content_detail_food" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/appbar_detail_food"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/heart_outline" />
 
 </android.support.design.widget.CoordinatorLayout>

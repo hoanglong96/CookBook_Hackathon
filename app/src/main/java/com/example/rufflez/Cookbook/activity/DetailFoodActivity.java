@@ -74,14 +74,7 @@ public class DetailFoodActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
-        //Fab fav
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setBookMark();
-            }
-        });
+
         setupUI();
         loadData();
 
@@ -92,20 +85,20 @@ public class DetailFoodActivity extends AppCompatActivity {
         mRecycleView.setLayoutManager(new LinearLayoutManager(mRecycleView.getContext()));
         mRecycleView.setAdapter(new SimpleStringRecyclerViewAdapter(getBaseContext(), i));
 
-        //Button Shop
-        btn_shop = (Button) findViewById(R.id.btn_shop);
-        btn_shop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                android.app.FragmentManager fm = getFragmentManager();
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("data",foodModel);
-//                DialogFragment dialogFragment = new DialogFragment();
-//                dialogFragment.show(fm,"Simple fm");
-//                dialogFragment.setArguments(bundle);
-
-            }
-        });
+//        //Button Shop
+//        btn_shop = (Button) findViewById(R.id.btn_shop);
+//        btn_shop.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                android.app.FragmentManager fm = getFragmentManager();
+////                Bundle bundle = new Bundle();
+////                bundle.putSerializable("data",foodModel);
+////                DialogFragment dialogFragment = new DialogFragment();
+////                dialogFragment.show(fm,"Simple fm");
+////                dialogFragment.setArguments(bundle);
+//
+//            }
+//        });
     }
 
     //Recycle Adapter
@@ -196,7 +189,19 @@ public class DetailFoodActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_cooktoday) {
+        if (id == R.id.action_bookmark) {
+            Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm vào món yêu thích", Snackbar.LENGTH_SHORT)
+                    .setAction("Yêu thích", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            MenuCookToday();
+                        }
+                    });
+            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.show();
+            return true;
+        }
+        if (id == R.id.action_addcook) {
             Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm vào thực đơn hôm nay", Snackbar.LENGTH_SHORT)
                     .setAction("Thực đơn", new View.OnClickListener() {
                         @Override
