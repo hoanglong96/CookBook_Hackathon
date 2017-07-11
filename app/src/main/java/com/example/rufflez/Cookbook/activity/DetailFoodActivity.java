@@ -6,23 +6,23 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.rufflez.Cookbook.databases.DatabaseHandle;
@@ -33,13 +33,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DetailFoodActivity extends AppCompatActivity {
-
-    ImageView imgBookMark;
-    boolean isBookMark;
+    private static final String TAG = DetailFoodActivity.class.toString();
+    private MenuItem isBookMark;
+    private ViewPager mViewPager, mViewPagerStep;
     private FoodModel foodModel;
     private ImageView imageToolbar;
     private TextView titleToolbar, nameTypeFood;
-    Toolbar toolbar;
+    private Toolbar toolbar;
     private TextView tv_content_cach_nau;
     private TextView tv_khauphan;
     private TextView tv_calo;
@@ -48,7 +48,9 @@ public class DetailFoodActivity extends AppCompatActivity {
     private TextView tv_typeFood;
     //CardView
     private RecyclerView mRecycleView;
+    private ListView mListView;
     private TextView mTextView;
+    private boolean isCheckAll;
     public static List<String> trees = Arrays.asList(
             "7-8 lạng gà ta",
             "50ml mật ong rừng",
@@ -61,8 +63,9 @@ public class DetailFoodActivity extends AppCompatActivity {
             "Ớt tươi",
             "Dầu ăn"
     );
-    FloatingActionButton fab;
-    Button btn_shop;
+    SparseBooleanArray clickedItemPositions = new SparseBooleanArray();
+    String valueItemCheck = null;
+    public static String[] itemCheckList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +79,11 @@ public class DetailFoodActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
 
+        //Intent
+        Intent intent = this.getIntent();
         setupUI();
         loadData();
+        mTextView = (TextView) findViewById(R.id.tv);
 
         //RecycleView
         String i[] = foodModel.getIngredientFood().split("-");
@@ -85,24 +91,8 @@ public class DetailFoodActivity extends AppCompatActivity {
         mRecycleView = (RecyclerView) findViewById(R.id.rv);
         mRecycleView.setLayoutManager(new LinearLayoutManager(mRecycleView.getContext()));
         mRecycleView.setAdapter(new SimpleStringRecyclerViewAdapter(getBaseContext(), i));
-
-//        //Button Shop
-//        btn_shop = (Button) findViewById(R.id.btn_shop);
-//        btn_shop.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                android.app.FragmentManager fm = getFragmentManager();
-////                Bundle bundle = new Bundle();
-////                bundle.putSerializable("data",foodModel);
-////                DialogFragment dialogFragment = new DialogFragment();
-////                dialogFragment.show(fm,"Simple fm");
-////                dialogFragment.setArguments(bundle);
-//
-//            }
-//        });
     }
 
-    //Recycle Adapter
     public static class SimpleStringRecyclerViewAdapter extends RecyclerView.Adapter<SimpleStringRecyclerViewAdapter.ViewHolder> {
         private String[] mValues;
         private Context mContext;
@@ -140,37 +130,11 @@ public class DetailFoodActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
             holder.mTextView.setText(mValues[position]);
-            holder.mView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (isBuy) {
-                        holder.mTextView.setPaintFlags(holder.mTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                        holder.mTextView.setTextColor(Color.CYAN);
-                        isBuy = false;
-                    } else {
-                        holder.mTextView.setPaintFlags(0);
-                        holder.mTextView.setTextColor(Color.BLACK);
-                        isBuy = true;
-                    }
-                }
-            });
         }
 
         @Override
         public int getItemCount() {
             return mValues.length;
-        }
-    }
-
-    private void setBookMark() {
-        if (foodModel.isBookmark()) {
-            fab.setImageResource(R.drawable.heart_outline);
-            DatabaseHandle.getInstance(this).setBookmark(false, foodModel);
-            foodModel.setBookmark(false);
-        } else {
-            fab.setImageResource(R.drawable.heart);
-            DatabaseHandle.getInstance(this).setBookmark(true, foodModel);
-            foodModel.setBookmark(true);
         }
     }
 
@@ -190,20 +154,23 @@ public class DetailFoodActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_bookmark) {
+
+        if (id == R.id.fav_detail) {
             if (foodModel.isBookmark()) {
                 item.setIcon(R.drawable.heart_outline);
-                DatabaseHandle.getInstance(this).setBookmark(false, foodModel);
+                DatabaseHandle.getHandle(this).setBookmark(false, foodModel);
                 foodModel.setBookmark(false);
-            }else {
+            } else {
                 item.setIcon(R.drawable.heart);
-                DatabaseHandle.getInstance(this).setBookmark(true, foodModel);
+                DatabaseHandle.getHandle(this).setBookmark(true, foodModel);
                 foodModel.setBookmark(true);
             }
-            Log.d("abc", "onOptionsItemSelected: " + foodModel.isBookmark());
+            Log.d(TAG, "onOptionsItemSelected: " + foodModel.isBookmark());
             return true;
         }
-        if (id == R.id.action_addcook) {
+        if (id == R.id.add_cooktoday) {
+            item.setIcon(R.drawable.ic_assignment_turned_in_black_24dp);
+            DatabaseHandle.getHandle(this).setUpdateNguyenLieu(foodModel);
             Snackbar snackbar = Snackbar.make(getWindow().getDecorView(), "Bạn đã thêm vào thực đơn hôm nay", Snackbar.LENGTH_SHORT)
                     .setAction("Thực đơn", new View.OnClickListener() {
                         @Override
@@ -225,6 +192,7 @@ public class DetailFoodActivity extends AppCompatActivity {
     }
 
     public void setupUI() {
+        isBookMark = (MenuItem) findViewById(R.id.fav_detail);
         imageToolbar = (ImageView) findViewById(R.id.header);
         titleToolbar = (TextView) findViewById(R.id.toolbar_title);
         tv_content_cach_nau = (TextView) findViewById(R.id.content_cach_nau);
@@ -241,13 +209,24 @@ public class DetailFoodActivity extends AppCompatActivity {
         byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodebyte, 0, decodebyte.length);
         imageToolbar.setImageBitmap(bitmap);
+        titleToolbar.setText(foodModel.getTitleFood());
+        tv_typeFood.setText(foodModel.getTypeFood());
         tv_content_cach_nau.setText(foodModel.getMethodFood());
         tv_khauphan.setText(foodModel.getKhauPhan());
         tv_calo.setText(foodModel.getCalo());
         tv_soNguyenLieu.setText(foodModel.getSoNguyenLieu());
         tv_thoigian.setText(foodModel.getThoiGianNau());
-        titleToolbar.setText(foodModel.getTitleFood());
-        tv_typeFood.setText(foodModel.getTypeFood());
         toolbar.setTitle(foodModel.getTitleFood());
+
+    }
+
+    private void setbookmark() {
+        if (foodModel.isBookmark()) {
+            DatabaseHandle.getHandle(this).setBookmark(false, foodModel);
+            foodModel.setBookmark(false);
+        } else {
+            DatabaseHandle.getHandle(this).setBookmark(true, foodModel);
+            foodModel.setBookmark(true);
+        }
     }
 }

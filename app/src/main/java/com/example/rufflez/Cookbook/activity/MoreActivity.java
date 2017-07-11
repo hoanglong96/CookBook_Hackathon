@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.example.rufflez.Cookbook.adapter.MoreFoodGridAdapter;
 import com.example.rufflez.Cookbook.databases.DatabaseHandle;
@@ -25,6 +26,7 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
     private static final String TAG = MoreActivity.class.toString();
     private GridView grid;
     private Bundle bundle;
+    private ImageView imageView;
     private MoreFoodGridAdapter adapter;
     private String isMonSang = "Món sáng", isMonKhaiVi = "Món khai vị", isMonChinh = "Món chính", isMonTrangMieng = "Món tráng miệng";
     private Toolbar toolbar;
@@ -40,6 +42,7 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
+        imageView = (ImageView) findViewById(R.id.header_more);
         //adapter gridview
 
         grid = (GridView) findViewById(R.id.grid_view);
@@ -47,24 +50,26 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         String typeMoreFood = bundle.getString("isMonSang");
         if (typeMoreFood.equals(isMonSang)) {
             toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món sáng"));
+            imageView.setImageResource(R.drawable.monsang);
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món sáng"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
         } else if (typeMoreFood.equals(isMonKhaiVi)) {
-            toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món khai vị"));
+            imageView.setImageResource(R.drawable.monkhaivi);
+            toolbar.setTitle("Món khai vị");
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món khai vị"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
-
         } else if (typeMoreFood.equals(isMonChinh)) {
-            toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món chính"));
+            imageView.setImageResource(R.drawable.monchinh);
+            toolbar.setTitle("Món chính");
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món chính"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
-
         } else if (typeMoreFood.equals(isMonTrangMieng)) {
-            toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món tráng miệng"));
+            imageView.setImageResource(R.drawable.montrangmieng);
+            toolbar.setTitle("Món tráng miệng");
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món tráng miệng"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
         }
@@ -79,8 +84,6 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_more);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
-
 
     @Override
     public void onBackPressed() {
