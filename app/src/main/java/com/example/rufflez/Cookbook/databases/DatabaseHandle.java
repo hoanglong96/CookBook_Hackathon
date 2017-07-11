@@ -19,15 +19,6 @@ public class DatabaseHandle {
         myDataBase = new MyDatabase(context);
     }
 
-    private static DatabaseHandle handle;
-
-    public static DatabaseHandle getHandle(Context context) {
-        if (handle == null) {
-            handle = new DatabaseHandle(context);
-        }
-        return handle;
-    }
-
     private SQLiteDatabase foodDataBase;
 
     public List<FoodModel> getListFood() {

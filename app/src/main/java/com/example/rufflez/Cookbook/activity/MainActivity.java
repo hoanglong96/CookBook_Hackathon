@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -23,7 +22,6 @@ import com.example.rufflez.Cookbook.fragments.ShoppingListFragment;
 import com.example.rufflez.myapplication.R;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.ArrayList;
 
@@ -40,28 +38,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        bottomBar = (BottomBar) findViewById(R.id.bottomBar);
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelected(@IdRes int tabId) {
-                if (tabId == R.id.tab_home) {
-                    HomeFragment homeFragment = new HomeFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content, homeFragment).commit();
-                    toolbar.setTitle("Hôm nay bạn nấu gì?");
-                }
-                if (tabId == R.id.tab_favorites) {
-                    FavoritesFragment favoritesFragment = new FavoritesFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content, favoritesFragment).commit();
-                    toolbar.setTitle("Món ăn yêu thích");
-                }
-                if (tabId == R.id.tab_shop) {
-                    ShoppingListFragment shoppingListFragment = new ShoppingListFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content, shoppingListFragment).commit();
-                    toolbar.setTitle("Danh sách nguyên liệu");
-                }
-            }
-        });
-
+        //HomeFragment
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, homeFragment).commit();
+        toolbar.setTitle("Hôm nay bạn nấu gì?");
+        //
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

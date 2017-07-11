@@ -1,28 +1,27 @@
 package com.example.rufflez.Cookbook.activity;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
-import android.util.Log;
-import android.util.SparseBooleanArray;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.rufflez.Cookbook.databases.DatabaseHandle;
@@ -34,7 +33,6 @@ import java.util.List;
 
 public class DetailFoodActivity extends AppCompatActivity {
 
-    private ViewPager mViewPager, mViewPagerStep;
     ImageView imgBookMark;
     boolean isBookMark;
     private FoodModel foodModel;
@@ -48,9 +46,8 @@ public class DetailFoodActivity extends AppCompatActivity {
     private TextView tv_thoigian;
     private TextView tv_typeFood;
     //CardView
-    private ListView mListView;
+    private RecyclerView mRecycleView;
     private TextView mTextView;
-    private boolean isCheckAll;
     public static List<String> trees = Arrays.asList(
             "7-8 lạng gà ta",
             "50ml mật ong rừng",
@@ -63,10 +60,8 @@ public class DetailFoodActivity extends AppCompatActivity {
             "Ớt tươi",
             "Dầu ăn"
     );
-    SparseBooleanArray clickedItemPositions = new SparseBooleanArray();
-    String valueItemCheck = null;
     FloatingActionButton fab;
-    public static String[] itemCheckList = null;
+    Button btn_shop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +74,7 @@ public class DetailFoodActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
-
-        //Intent
-        Intent intent = this.getIntent();
-
+        //Fab fav
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,74 +85,90 @@ public class DetailFoodActivity extends AppCompatActivity {
         setupUI();
         loadData();
 
-
-        mListView = (ListView) findViewById(R.id.lv);
-        mTextView = (TextView) findViewById(R.id.tv);
-
-        //NGuyen lieu
+        //RecycleView
         String i[] = foodModel.getIngredientFood().split("-");
-        ArrayAdapter<String> adapter = new ArrayAdapter(
-                this,
-                android.R.layout.simple_list_item_multiple_choice, i
-        );
+        mTextView = (TextView) findViewById(R.id.tv);
+        mRecycleView = (RecyclerView) findViewById(R.id.rv);
+        mRecycleView.setLayoutManager(new LinearLayoutManager(mRecycleView.getContext()));
+        mRecycleView.setAdapter(new SimpleStringRecyclerViewAdapter(getBaseContext(), i));
 
-        clickedItemPositions = mListView.getCheckedItemPositions();
-        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //Button Shop
+        btn_shop = (Button) findViewById(R.id.btn_shop);
+        btn_shop.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mTextView.setText("");
-                for (int index = 0; index < clickedItemPositions.size(); index++) {
-                    // Get the checked status of the current item
-                    boolean checked = clickedItemPositions.valueAt(index);
-                    if (checked) {
-                        // If the current item is checked
-                        int key = clickedItemPositions.keyAt(index);
-                        String item = (String) mListView.getItemAtPosition(key);
-                        // Display the checked items on TextView
-                        mTextView.setText(mTextView.getText() + item + ",");
-                        valueItemCheck = mTextView.getText().toString();
-                    }
-                }
-                itemCheckList = valueItemCheck.split(",");
-                Log.d("ab", "onItemClick: " + itemCheckList.length);
+            public void onClick(View view) {
             }
         });
-
-        setListViewHeightBasedOnChildren(mListView);
-
     }
 
+    //Recycle Adapter
+    public static class SimpleStringRecyclerViewAdapter extends RecyclerView.Adapter<SimpleStringRecyclerViewAdapter.ViewHolder> {
+        private String[] mValues;
+        private Context mContext;
+        private boolean isBuy;
 
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null) {
-            // pre-condition
-            return;
+        public static class ViewHolder extends RecyclerView.ViewHolder {
+
+            public final View mView;
+            public final TextView mTextView;
+
+            public ViewHolder(View view) {
+                super(view);
+                mView = view;
+                mTextView = (TextView) view.findViewById(android.R.id.text1);
+            }
+
         }
 
-        int totalHeight = 0;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
+        public String getValueAt(int position) {
+            return mValues[position];
         }
 
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight
-                + (listView.getDividerHeight() * (listAdapter.getCount()-1));
-        listView.setLayoutParams(params);
-        Log.i("height of listItem:", String.valueOf(totalHeight));
+        public SimpleStringRecyclerViewAdapter(Context context, String[] items) {
+            mContext = context;
+            mValues = items;
+        }
+
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_nguyen_lieu, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(final ViewHolder holder, final int position) {
+            holder.mTextView.setText(mValues[position]);
+            holder.mView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isBuy) {
+                        holder.mTextView.setPaintFlags(holder.mTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        holder.mTextView.setTextColor(Color.CYAN);
+                        isBuy = false;
+                    } else {
+                        holder.mTextView.setPaintFlags(0);
+                        holder.mTextView.setTextColor(Color.BLACK);
+                        isBuy = true;
+                    }
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return mValues.length;
+        }
     }
 
     private void setBookMark() {
-        if(foodModel.isBookmark()){
+        if (foodModel.isBookmark()) {
             fab.setImageResource(R.drawable.heart_outline);
-            DatabaseHandle.getInstance(this).setBookmark(false,foodModel);
+            DatabaseHandle.getInstance(this).setBookmark(false, foodModel);
             foodModel.setBookmark(false);
-        }else{
+        } else {
             fab.setImageResource(R.drawable.heart);
-            DatabaseHandle.getInstance(this).setBookmark(true,foodModel);
+            DatabaseHandle.getInstance(this).setBookmark(true, foodModel);
             foodModel.setBookmark(true);
         }
     }

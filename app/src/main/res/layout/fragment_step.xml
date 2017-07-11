@@ -23,11 +23,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/clock_fast"/>
+                    android:src="@drawable/silverware"
+                    />
                 <TextView
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/primaryDark"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
 
             </LinearLayout>
             <TextView
-                android:textColor="#2d2d2d"
+                android:textColor="@color/bb_inActiveBottomBarItemColor"
                 android:textSize="18sp"
                 android:id="@+id/content_cach_nau"
                 android:layout_width="match_parent"

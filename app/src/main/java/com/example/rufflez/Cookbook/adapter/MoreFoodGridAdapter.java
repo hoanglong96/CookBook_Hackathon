@@ -70,7 +70,7 @@ public class MoreFoodGridAdapter extends BaseAdapter {
             TextView textView = (TextView) grid.findViewById(R.id.tv_name_food);
             ImageView imageView = (ImageView)grid.findViewById(R.id.img_more_food);
             TextView tvTime = (TextView) grid.findViewById(R.id.item_time);
-            tvTime.setText(foodModel.getThoiGianNau());
+            tvTime.setText(foodModel.getThoiGianNau() + "p");
             textView.setText(foodModel.getTitleFood());
             String image[] =  foodModel.getAvatarFood().split(",");
             byte[] decodebyte = Base64.decode(image[1], Base64.DEFAULT);

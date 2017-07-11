@@ -47,24 +47,24 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         String typeMoreFood = bundle.getString("isMonSang");
         if (typeMoreFood.equals(isMonSang)) {
             toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món sáng"));
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món sáng"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
         } else if (typeMoreFood.equals(isMonKhaiVi)) {
             toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món khai vị"));
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món khai vị"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
 
         } else if (typeMoreFood.equals(isMonChinh)) {
             toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món chính"));
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món chính"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
 
         } else if (typeMoreFood.equals(isMonTrangMieng)) {
             toolbar.setTitle("Món ăn sáng");
-            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getHandle(getBaseContext()).getListFood(), "Món tráng miệng"));
+            MoreFoodGridAdapter gridAdapter1 = new MoreFoodGridAdapter(getBaseContext(), Utils.loclist(DatabaseHandle.getInstance(getBaseContext()).getListFood(), "Món tráng miệng"));
             adapter = gridAdapter1;
             grid.setAdapter(gridAdapter1);
         }
@@ -79,6 +79,8 @@ public class MoreActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_more);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
 
     @Override
     public void onBackPressed() {

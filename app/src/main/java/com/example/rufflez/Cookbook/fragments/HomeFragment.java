@@ -130,13 +130,13 @@ public class HomeFragment extends Fragment {
         mRecycleView_trang_mieng.hasFixedSize();
         mRecycleView_khai_vi.hasFixedSize();
 
-        FoodAdapter monSangAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món sáng", "enable"));
+        FoodAdapter monSangAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getInstance(getContext()).getListFood(), "Món sáng", "enable"));
         mRecycleView_an_sang.setAdapter(monSangAdapter);
-        FoodAdapter monkhaiviAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món khai vị", "enable"));
+        FoodAdapter monkhaiviAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getInstance(getContext()).getListFood(), "Món khai vị", "enable"));
         mRecycleView_khai_vi.setAdapter(monkhaiviAdapter);
-        FoodAdapter monChinhAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món chính", "enable"));
+        FoodAdapter monChinhAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getInstance(getContext()).getListFood(), "Món chính", "enable"));
         mRecycleView_mon_chinh.setAdapter(monChinhAdapter);
-        FoodAdapter monTrangMiengAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getHandle(getContext()).getListFood(), "Món tráng miệng", "enable"));
+        FoodAdapter monTrangMiengAdapter = new FoodAdapter(getContext(), UtilsFilter.loclist(DatabaseHandle.getInstance(getContext()).getListFood(), "Món tráng miệng", "enable"));
         mRecycleView_trang_mieng.setAdapter(monTrangMiengAdapter);
 
     }
